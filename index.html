@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeaPASS — TOEICで飛立つ、理想への軌跡</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1E3A5F;
+      --sky:    #5AACDB;
+      --sky-lt: #EAF5FB;
+      --amber:  #F0A04B;
+      --white:  #FFFFFF;
+      --bg:     #F7FAFD;
+      --text:   #2D3748;
+      --muted:  #718096;
+      --border: #E2ECF4;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(30,58,95,.08);
+      --shadow-md: 0 8px 40px rgba(30,58,95,.14);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.7; overflow-x: hidden; }
+    img  { display: block; max-width: 100%; }
+    a    { text-decoration: none; color: inherit; }
+
+    /* ─── HEADER ─────────────────────────────── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 64px;
+      background: rgba(255,255,255,0);
+      transition: background .3s, box-shadow .3s;
+    }
+    header.scrolled {
+      background: rgba(255,255,255,.95);
+      box-shadow: 0 1px 12px rgba(30,58,95,.10);
+      backdrop-filter: blur(8px);
+    }
+    .logo {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .logo img {
+      width: 40px; height: 40px; border-radius: 50%; object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    }
+    header nav { display: flex; gap: 2rem; }
+    header nav a {
+      font-size: .875rem; font-weight: 500; color: var(--navy);
+      opacity: .8; transition: opacity .2s;
+    }
+    header nav a:hover { opacity: 1; }
+    .btn-cta {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .55rem 1.4rem; border-radius: 40px;
+      background: var(--sky); color: var(--white);
+      font-size: .875rem; font-weight: 600;
+      transition: background .2s, transform .15s;
+      white-space: nowrap;
+    }
+    .btn-cta:hover { background: var(--navy); transform: translateY(-1px); }
+
+    /* ─── HERO ───────────────────────────────── */
+    #hero {
+      position: relative; height: 100vh; min-height: 580px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('LeaPASS/LeaPASS_original_web.jpg') center/cover no-repeat;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, rgba(30,58,95,.60) 0%, rgba(90,172,219,.30) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2; text-align: center;
+      padding: 0 1.25rem; width: 100%; max-width: 680px;
+    }
+    .hero-service-name {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 700; color: rgba(255,255,255,.95);
+      letter-spacing: .2em; margin-bottom: .75rem;
+      text-transform: uppercase;
+    }
+    .hero-tag {
+      display: inline-block; margin-bottom: 1.2rem;
+      font-size: .75rem; font-weight: 600; letter-spacing: .16em;
+      color: rgba(255,255,255,.9); text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,.5); border-radius: 40px;
+      padding: .28rem .9rem;
+    }
+    .hero-h1 {
+      font-size: clamp(1.9rem, 5vw, 3.4rem);
+      font-weight: 700; color: var(--white); line-height: 1.25;
+      margin-bottom: .85rem; letter-spacing: .01em;
+    }
+    .hero-sub {
+      font-size: clamp(.875rem, 2vw, 1rem);
+      color: rgba(255,255,255,.85); margin-bottom: 2rem; line-height: 1.8;
+      font-weight: 300;
+    }
+    .btn-hero {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .85rem 2rem; border-radius: 40px;
+      background: var(--amber); color: var(--white);
+      font-size: clamp(.9rem, 2.5vw, 1rem); font-weight: 700;
+      box-shadow: 0 4px 20px rgba(240,160,75,.45);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(240,160,75,.55); }
+    .scroll-hint {
+      position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: .3rem;
+      color: rgba(255,255,255,.7); font-size: .7rem; letter-spacing: .12em;
+    }
+    .scroll-hint .chevron { animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+    /* ─── SECTION COMMONS ─────────────────────── */
+    section { padding: 80px 5vw; }
+    .section-label {
+      font-size: .7rem; font-weight: 600; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--sky); margin-bottom: .4rem;
+    }
+    .section-h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: .8rem;
+    }
+    .section-lead {
+      font-size: .95rem; color: var(--muted); line-height: 1.9; max-width: 540px;
+    }
+
+    /* ─── PAIN SECTION ────────────────────────── */
+    #pain { background: var(--bg); }
+    .pain-inner { max-width: 960px; margin: 0 auto; text-align: center; }
+    .pain-inner .section-h2 { margin-bottom: 2.5rem; }
+    .pain-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    }
+    .pain-card {
+      background: var(--white); border-radius: var(--radius);
+      border: 1px solid var(--border); padding: 1.75rem 1.25rem;
+      box-shadow: var(--shadow); text-align: left;
+    }
+    .pain-num { font-size: .7rem; font-weight: 700; color: var(--sky); letter-spacing: .1em; margin-bottom: .6rem; }
+    .pain-card h3 { font-size: .975rem; font-weight: 700; color: var(--navy); margin-bottom: .4rem; }
+    .pain-card p  { font-size: .85rem; color: var(--muted); line-height: 1.75; }
+
+    /* ─── INTRO ───────────────────────────────── */
+    #intro { background: var(--white); }
+    .split {
+      max-width: 1060px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: center;
+    }
+    .split-img {
+      border-radius: var(--radius); overflow: hidden;
+      aspect-ratio: 4/3; box-shadow: var(--shadow-md);
+    }
+    .split-img img { width: 100%; height: 100%; object-fit: cover; }
+    .split-text { display: flex; flex-direction: column; gap: .9rem; }
+
+    /* ─── REASONS ─────────────────────────────── */
+    #reasons { background: var(--sky-lt); }
+    .reasons-inner { max-width: 1060px; margin: 0 auto; }
+    .reasons-header { text-align: center; margin-bottom: 3.5rem; }
+    .reasons-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+    .reason-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 2rem 1.5rem; box-shadow: var(--shadow);
+      position: relative; overflow: hidden;
+    }
+    .reason-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--sky), var(--navy));
+    }
+    .reason-num { font-size: 2.5rem; font-weight: 700; color: var(--sky-lt); line-height: 1; margin-bottom: .75rem; }
+    .reason-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: .6rem; }
+    .reason-card p  { font-size: .85rem; color: var(--muted); line-height: 1.8; }
+
+    /* ─── PROGRAM (ILLUSTRATION GRID) ────────── */
+    #program { background: var(--white); }
+    .program-header { text-align: center; margin-bottom: 3.5rem; }
+    .illust-grid {
+      max-width: 960px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+    }
+    .illust-item { text-align: center; display: flex; flex-direction: column; align-items: center; gap: .75rem; }
+    .illust-icon {
+      width: 80px; height: 80px;
+      background: var(--sky-lt); border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .illust-icon svg { width: 44px; height: 44px; }
+    .illust-item h4 { font-size: .9rem; font-weight: 700; color: var(--navy); }
+    .illust-item p  { font-size: .8rem; color: var(--muted); line-height: 1.7; }
+
+    .illust-divider { max-width: 960px; margin: 3rem auto 0; }
+    .illust-grid-2 {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+      max-width: 960px; margin: 2rem auto 0;
+    }
+
+    /* ─── RESULTS ─────────────────────────────── */
+    #results { background: var(--navy); }
+    .results-inner { max-width: 1060px; margin: 0 auto; }
+    .results-header { text-align: center; margin-bottom: 3rem; }
+    .results-header .section-label { color: rgba(90,172,219,.9); }
+    .results-header .section-h2 { color: var(--white); }
+    .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .result-card {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius); padding: 2rem 1.5rem;
+    }
+    .result-score { font-size: 2.2rem; font-weight: 700; color: var(--amber); line-height: 1; margin-bottom: .25rem; }
+    .result-name  { font-size: .8rem; color: rgba(255,255,255,.55); margin-bottom: 1rem; }
+    .result-card blockquote {
+      font-size: .875rem; color: rgba(255,255,255,.85); line-height: 1.8;
+      border-left: 3px solid var(--sky); padding-left: .9rem;
+    }
+
+    /* ─── EXPERIENCE ─────────────────────────── */
+    #experience { background: var(--bg); }
+    .exp-inner { max-width: 1060px; margin: 0 auto; }
+    .testimonial {
+      display: grid; grid-template-columns: 1fr 1.4fr; gap: 4vw; align-items: start;
+    }
+    .testimonial-img {
+      border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md);
+    }
+    .testimonial-img img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; }
+    .testimonial-body { display: flex; flex-direction: column; gap: 1.25rem; padding-top: .5rem; }
+    .score-badge {
+      display: inline-flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+      background: var(--sky-lt); border: 1.5px solid var(--sky);
+      border-radius: 40px; padding: .5rem 1.2rem;
+      color: var(--navy); font-weight: 700; font-size: .9rem; width: fit-content;
+    }
+    .score-badge .up { color: var(--amber); }
+    .testimonial-quote {
+      font-size: .975rem; line-height: 1.9; color: var(--text);
+      position: relative; padding-left: 1.1rem;
+    }
+    .testimonial-quote::before {
+      content: ''; position: absolute; left: 0; top: .3rem;
+      width: 3px; height: calc(100% - .6rem);
+      background: linear-gradient(to bottom, var(--sky), var(--navy));
+      border-radius: 2px;
+    }
+    .testimonial-name { font-size: .85rem; color: var(--muted); }
+
+    /* ─── PROFILE ─────────────────────────────── */
+    #profile { background: var(--white); }
+    .profile-inner { max-width: 1060px; margin: 0 auto; }
+    .profile-grid {
+      display: grid; grid-template-columns: 300px 1fr; gap: 5vw; align-items: start;
+    }
+    .profile-photo { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); }
+    .profile-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+    .profile-name { font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
+    .profile-title { font-size: .85rem; color: var(--sky); font-weight: 600; margin-bottom: 1.5rem; }
+    .profile-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .profile-col h4 { font-size: .85rem; font-weight: 700; color: var(--sky); letter-spacing: .08em; text-transform: uppercase; margin-bottom: .75rem; }
+    .profile-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .profile-list li {
+      display: flex; align-items: flex-start; gap: .5rem;
+      font-size: .875rem; color: var(--text); line-height: 1.6;
+    }
+    .profile-list li::before {
+      content: '✓'; color: var(--sky); font-weight: 700; flex-shrink: 0; margin-top: .05rem;
+    }
+
+    /* ─── FAQ ─────────────────────────────────── */
+    #faq { background: var(--bg); }
+    .faq-inner { max-width: 720px; margin: 0 auto; }
+    .faq-header { text-align: center; margin-bottom: 2.5rem; }
+    .faq-item {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); margin-bottom: .875rem; overflow: hidden;
+    }
+    .faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 1.4rem; cursor: pointer; font-weight: 600; color: var(--navy);
+      font-size: .925rem; gap: 1rem;
+    }
+    .faq-q .icon { transition: transform .25s; color: var(--sky); flex-shrink: 0; font-size: 1.1rem; }
+    .faq-item.open .faq-q .icon { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .faq-a-inner { padding: 0 1.4rem 1.2rem; font-size: .875rem; color: var(--muted); line-height: 1.85; }
+    .faq-item.open .faq-a { max-height: 300px; }
+
+    /* ─── CONTACT ─────────────────────────────── */
+    #contact {
+      background: linear-gradient(135deg, var(--navy) 0%, #2A5A8F 100%);
+      text-align: center; padding: 90px 5vw;
+    }
+    #contact .section-label { color: var(--sky); margin-bottom: .6rem; }
+    #contact h2 {
+      font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 700;
+      color: var(--white); margin-bottom: .9rem; line-height: 1.35;
+    }
+    #contact p {
+      color: rgba(255,255,255,.75); margin-bottom: 2.25rem;
+      max-width: 500px; margin-left: auto; margin-right: auto;
+      font-size: .925rem; line-height: 1.8;
+    }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-amber {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .85rem 2rem; border-radius: 40px;
+      background: var(--amber); color: var(--white);
+      font-size: .95rem; font-weight: 700;
+      box-shadow: 0 4px 20px rgba(240,160,75,.4);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn-amber:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(240,160,75,.55); }
+    .btn-line {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .85rem 1.8rem; border-radius: 40px;
+      background: #06C755; color: var(--white);
+      font-size: .95rem; font-weight: 700;
+      transition: transform .15s, opacity .15s;
+    }
+    .btn-line:hover { transform: translateY(-2px); opacity: .9; }
+
+    /* ─── FOOTER ──────────────────────────────── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,.5);
+      text-align: center; padding: 2.5rem 5vw; font-size: .8rem;
+    }
+    .footer-logo { font-size: 1rem; font-weight: 700; color: rgba(255,255,255,.9); margin-bottom: .4rem; }
+    .footer-tagline { margin-bottom: 1.25rem; }
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    .footer-links a {
+      color: rgba(255,255,255,.65); font-weight: 500; font-size: .85rem;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--sky); }
+    .footer-copy { color: rgba(255,255,255,.35); font-size: .75rem; }
+
+    /* ─── FADE-IN ─────────────────────────────── */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .5s ease, transform .5s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ──────────────────────────── */
+    @media (max-width: 860px) {
+      header nav { display: none; }
+      .btn-cta { font-size: .8rem; padding: .5rem 1.1rem; }
+
+      #hero { min-height: 100svh; }
+      .hero-service-name { font-size: 1rem; letter-spacing: .15em; }
+      .hero-h1 { font-size: 2rem; }
+      .hero-sub { font-size: .875rem; }
+      .btn-hero { font-size: .9rem; padding: .75rem 1.6rem; }
+
+      .pain-grid { grid-template-columns: 1fr; }
+      .split { grid-template-columns: 1fr; }
+      .split-img { aspect-ratio: 16/9; }
+
+      .reasons-grid { grid-template-columns: 1fr; gap: 1rem; }
+
+      .illust-grid  { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .illust-grid-2{ grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+
+      .results-grid { grid-template-columns: 1fr; gap: 1rem; }
+
+      .testimonial { grid-template-columns: 1fr; }
+      .testimonial-img img { aspect-ratio: 4/3; }
+
+      .profile-grid { grid-template-columns: 1fr; }
+      .profile-photo { max-width: 220px; }
+      .profile-cols { grid-template-columns: 1fr; gap: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 60px 1.1rem; }
+      .illust-grid, .illust-grid-2 { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .illust-icon { width: 64px; height: 64px; border-radius: 16px; }
+      .illust-icon svg { width: 36px; height: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══════════════════════════════ -->
+<header id="header">
+  <a href="#" class="logo">
+    <img src="LeaPASS/LeaPASS_logo_small.png" alt="LeaPASS">
+  </a>
+  <nav>
+    <a href="#reasons">サービス</a>
+    <a href="#experience">体験談</a>
+    <a href="#faq">よくある質問</a>
+  </nav>
+  <a href="https://lin.ee/nHNCS41" class="btn-cta">無料面談を予約する ›</a>
+</header>
+
+<!-- ═══ HERO ══════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-service-name">LeaPASS</p>
+    <span class="hero-tag">TOEIC Personal Coaching</span>
+    <h1 class="hero-h1">TOEICで飛立つ、<br>理想への軌跡</h1>
+    <p class="hero-sub">あなただけの学習プランで、<br>スコアアップを最短ルートで実現。</p>
+    <a href="https://lin.ee/nHNCS41" class="btn-hero">60分無料面談を予約する ›</a>
+  </div>
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <span class="chevron">▾</span>
+  </div>
+</section>
+
+<!-- ═══ PAIN POINTS ════════════════════════════ -->
+<section id="pain">
+  <div class="pain-inner">
+    <p class="section-label">Your Challenges</p>
+    <h2 class="section-h2 fade-up">こんな悩みありませんか？</h2>
+    <div class="pain-grid">
+      <div class="pain-card fade-up">
+        <p class="pain-num">01</p>
+        <h3>勉強の仕方がわからない</h3>
+        <p>単語帳とテキストを買っても、自分の弱点がどこかすら把握できていない。</p>
+      </div>
+      <div class="pain-card fade-up">
+        <p class="pain-num">02</p>
+        <h3>やる気が続かない</h3>
+        <p>一人では報告する相手がいないから、どうしてもサボってしまう。</p>
+      </div>
+      <div class="pain-card fade-up">
+        <p class="pain-num">03</p>
+        <h3>スコアが上がる実感がない</h3>
+        <p>なんとなく勉強しているけれど、本番で点数が伸びているか分からない。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INTRO ══════════════════════════════════ -->
+<section id="intro">
+  <div class="split">
+    <div class="split-img fade-up">
+      <img src="LeaPASS/story1_web.jpg" alt="空から見た雲海と飛行機の翼">
+    </div>
+    <div class="split-text fade-up">
+      <p class="section-label">What is LeaPASS</p>
+      <h2 class="section-h2">LeaPASSとは</h2>
+      <p class="section-lead">
+        TOEIC対策に特化したパーソナルコーチングサービスです。
+        一人ひとりの現在地と目標を見極め、最短で結果を出す学習ロードマップを設計します。
+      </p>
+      <p class="section-lead" style="margin-top:.25rem;">
+        エージェントを仲介せず、あなただけのプランで理想のスコアへ。
+        出発前の夢を、英語というパスポートで現実にします。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REASONS ════════════════════════════════ -->
+<section id="reasons">
+  <div class="reasons-inner">
+    <div class="reasons-header">
+      <p class="section-label">Why LeaPASS</p>
+      <h2 class="section-h2 fade-up">選ばれる3つの理由</h2>
+      <p class="section-lead fade-up" style="margin: 0 auto; text-align:center;">TOEIC対策英語パーソナルコーチングサービス</p>
+    </div>
+    <div class="reasons-grid">
+      <div class="reason-card fade-up">
+        <div class="reason-num">01</div>
+        <h3>完全オーダーメイド<br>学習カリキュラム</h3>
+        <p>現在のスコア・苦手パート・使える時間をもとに、世界にひとつだけのロードマップを作成。無駄のない最短ルートを提示します。</p>
+      </div>
+      <div class="reason-card fade-up">
+        <div class="reason-num">02</div>
+        <h3>半永久的サポートの<br>コストパフォーマンス</h3>
+        <p>オンライン教材やコミュニティへのアクセス権は期限なし。受講後も学び続けられる環境が、長期的なスコアアップを後押しします。</p>
+      </div>
+      <div class="reason-card fade-up">
+        <div class="reason-num">03</div>
+        <h3>毎日のチャットで<br>モチベーション維持</h3>
+        <p>日報システムで毎日の学習を報告。コーチからのリプライが、一人では続かなかった勉強を「続けられるもの」に変えます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROGRAM ════════════════════════════════ -->
+<section id="program">
+  <div class="program-header">
+    <p class="section-label">Program</p>
+    <h2 class="section-h2 fade-up">コーチングの内容</h2>
+  </div>
+
+  <!-- アイコングリッド 上段 -->
+  <div class="illust-grid">
+    <!-- オンラインコンテンツ -->
+    <div class="illust-item fade-up">
+      <div class="illust-icon">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="8" width="36" height="24" rx="3" stroke="#5AACDB" stroke-width="2.2"/>
+          <path d="M14 32l-3 6M30 32l3 6M10 38h24" stroke="#5AACDB" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="22" cy="20" r="5" stroke="#1E3A5F" stroke-width="2" fill="none"/>
+          <path d="M20 20l1.5 1.5L25 18" stroke="#1E3A5F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h4>オンラインコンテンツ</h4>
+      <p>解説動画や教材などを<br>半永久的に利用可能</p>
+    </div>
+    <!-- パーソナル学習計画 -->
+    <div class="illust-item fade-up">
+      <div class="illust-icon">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="10" width="28" height="28" rx="3" stroke="#5AACDB" stroke-width="2.2"/>
+          <path d="M15 10V6M29 10V6" stroke="#5AACDB" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M8 18h28" stroke="#5AACDB" stroke-width="2"/>
+          <path d="M14 25l2 2 5-5" stroke="#1E3A5F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M14 31l2 2 5-5" stroke="#1E3A5F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M27 26h3M27 32h3" stroke="#1E3A5F" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h4>パーソナル学習計画</h4>
+      <p>ひとりひとりに合った<br>学習ロードマップを提案</p>
+    </div>
+    <!-- 日報システム -->
+    <div class="illust-item fade-up">
+      <div class="illust-icon">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="12" y="6" width="20" height="32" rx="4" stroke="#5AACDB" stroke-width="2.2"/>
+          <path d="M18 12h8M16 18h12M16 24h8" stroke="#1E3A5F" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="22" cy="33" r="2" fill="#5AACDB"/>
+          <path d="M30 4l3-2 1 3-3 1z" fill="#F0A04B"/>
+          <path d="M33 2l2 6" stroke="#F0A04B" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h4>日報システム</h4>
+      <p>毎日報告のシステム化で<br>モチベーション維持</p>
+    </div>
+    <!-- 定期面談 -->
+    <div class="illust-item fade-up">
+      <div class="illust-icon">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="12" width="26" height="20" rx="3" stroke="#5AACDB" stroke-width="2.2"/>
+          <path d="M30 17l10-5v20l-10-5V17z" stroke="#5AACDB" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="17" cy="22" r="4" fill="#EAF5FB" stroke="#1E3A5F" stroke-width="1.8"/>
+          <circle cx="17" cy="22" r="1.5" fill="#1E3A5F"/>
+        </svg>
+      </div>
+      <h4>定期面談</h4>
+      <p>最低月2回の進捗確認で<br>ロードマップを伴走</p>
+    </div>
+  </div>
+
+  <!-- アイコングリッド 下段 -->
+  <div class="illust-grid-2">
+    <!-- Zoom -->
+    <div class="illust-item fade-up">
+      <div class="illust-icon">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="9" width="24" height="18" rx="3" stroke="#5AACDB" stroke-width="2.2"/>
+          <path d="M27 14l14-7v26l-14-7V14z" stroke="#5AACDB" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="11" cy="18" r="3.5" fill="#EAF5FB" stroke="#1E3A5F" stroke-width="1.7"/>
+          <path d="M5 30c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#1E3A5F" stroke-width="1.7" stroke-linecap="round"/>
+          <path d="M8 38h28" stroke="#5AACDB" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h4>Zoom面談</h4>
+      <p>オンラインで完結する<br>コーチングセッション</p>
+    </div>
+    <!-- LINEサポート -->
+    <div class="illust-item fade-up">
+      <div class="illust-icon">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="12" y="6" width="20" height="34" rx="4" stroke="#5AACDB" stroke-width="2.2"/>
+          <rect x="17" y="10" width="10" height="2.5" rx="1.25" fill="#5AACDB"/>
+          <rect x="15" y="16" width="14" height="12" rx="2" fill="#EAF5FB" stroke="#1E3A5F" stroke-width="1.5"/>
+          <path d="M18 21h8M18 24h5" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="22" cy="35" r="2" fill="#5AACDB"/>
+        </svg>
+      </div>
+      <h4>LINE サポート</h4>
+      <p>毎日のチャットで<br>疑問をすぐに解消</p>
+    </div>
+    <!-- コミュニティ -->
+    <div class="illust-item fade-up">
+      <div class="illust-icon">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="14" r="5" stroke="#5AACDB" stroke-width="2.2" fill="none"/>
+          <path d="M10 36c0-6.6 5.4-12 12-12s12 5.4 12 12" stroke="#5AACDB" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="8" cy="16" r="3.5" stroke="#1E3A5F" stroke-width="1.7" fill="none"/>
+          <path d="M2 32c0-4.4 2.7-7 6-7" stroke="#1E3A5F" stroke-width="1.7" stroke-linecap="round"/>
+          <circle cx="36" cy="16" r="3.5" stroke="#1E3A5F" stroke-width="1.7" fill="none"/>
+          <path d="M42 32c0-4.4-2.7-7-6-7" stroke="#1E3A5F" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h4>勉強コミュニティ</h4>
+      <p>仲間と一緒に学ぶ<br>オンライン勉強会</p>
+    </div>
+    <!-- 目標達成 -->
+    <div class="illust-item fade-up">
+      <div class="illust-icon">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 38V28l8-8 8 6 8-14" stroke="#5AACDB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M32 12h6v6" stroke="#5AACDB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="6" y="34" width="8" height="4" rx="1" fill="#EAF5FB" stroke="#1E3A5F" stroke-width="1.5"/>
+          <rect x="18" y="28" width="8" height="10" rx="1" fill="#EAF5FB" stroke="#1E3A5F" stroke-width="1.5"/>
+          <rect x="30" y="22" width="8" height="16" rx="1" fill="#EAF5FB" stroke="#5AACDB" stroke-width="1.8"/>
+        </svg>
+      </div>
+      <h4>目標スコア達成</h4>
+      <p>明確な指標で<br>確実にスコアアップ</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RESULTS ════════════════════════════════ -->
+<section id="results">
+  <div class="results-inner">
+    <div class="results-header">
+      <p class="section-label">Results</p>
+      <h2 class="section-h2 fade-up">受講生の実績</h2>
+    </div>
+    <div class="results-grid">
+      <div class="result-card fade-up">
+        <p class="result-score">+150点</p>
+        <p class="result-name">りんなさん・大学2年生（メルボルン在住）</p>
+        <blockquote>「指示がめちゃめちゃ的確で具体的。やることが全部明確になってから、あとはやるだけでした。1ヶ月で600点超えを達成できました。」</blockquote>
+      </div>
+      <div class="result-card fade-up">
+        <p class="result-score">600点超え</p>
+        <p class="result-name">1ヶ月コーチング後、本番TOEIC</p>
+        <blockquote>「スコアが上がるにつれて日常会話も楽になっていきました。リスニング対策がそのまま現地での会話に直結していると感じます。」</blockquote>
+      </div>
+      <div class="result-card fade-up">
+        <p class="result-score">継続率 100%</p>
+        <p class="result-name">受講中のモニター生</p>
+        <blockquote>「誰かに成果を伝える場があるから、モチベーションが続く。コーチのリプライが嬉しくて、今日も頑張ろうと思えます。」</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE ═════════════════════════════ -->
+<section id="experience">
+  <div class="exp-inner">
+    <p class="section-label">Experience</p>
+    <h2 class="section-h2 fade-up">サポート生の声</h2>
+    <div class="testimonial" style="margin-top:2.5rem;">
+      <div class="testimonial-img fade-up">
+        <img src="LeaPASS/preview_before.jpg" alt="りんなさん 受講インタビュー">
+      </div>
+      <div class="testimonial-body fade-up">
+        <div class="score-badge">
+          <span>430点</span>
+          <span class="up">→ 600点超え</span>
+          <strong>+150点以上</strong>
+        </div>
+        <p style="font-size:.78rem; font-weight:600; color:var(--sky); letter-spacing:.08em;">TOEIC受験 / 大学2年生（メルボルン在住）</p>
+        <blockquote class="testimonial-quote">
+          「本当に勉強の仕方がわからなくて、自分の弱みも見つけられない状態でした。
+          でもレオさんの指示が的確で具体的で、これをやればいいんだってはっきりしてから、もうやるだけでした。
+          しかも一人だとどうしてもサボるけど、<strong>コーチのためにこの日までに絶対終わらせよう</strong>って思えるから続けられた。
+          結果、1ヶ月で150点以上アップして本番600点を超えました！」
+        </blockquote>
+        <p class="testimonial-name">りんなさん・大学2年生<br>（オーストラリア・メルボルン在住）</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROFILE ════════════════════════════════ -->
+<section id="profile">
+  <div class="profile-inner">
+    <p class="section-label">Profile</p>
+    <h2 class="section-h2 fade-up" style="margin-bottom:2.5rem;">コーチプロフィール</h2>
+    <div class="profile-grid">
+      <div class="profile-photo fade-up">
+        <img src="LeaPASS/profile_web.jpg" alt="Reo Takeshita">
+      </div>
+      <div class="fade-up">
+        <p class="profile-name">Reo Takeshita</p>
+        <p class="profile-title">TOEIC &amp; 英語コーチ / オーストラリア在住</p>
+        <div class="profile-cols">
+          <div class="profile-col">
+            <h4>経歴</h4>
+            <ul class="profile-list">
+              <li>2018 カナダ 交換留学<br>アメリカ ボストンキャリアフォーラム</li>
+              <li>2019 国際教養大学 卒業</li>
+              <li>2020 某アパレル大手 翻訳通訳</li>
+              <li>2025 オーストラリア ワーホリ</li>
+            </ul>
+          </div>
+          <div class="profile-col">
+            <h4>実績</h4>
+            <ul class="profile-list">
+              <li>個別指導塾講師<br>（キッズ英会話・中学英語・高校英語・受験英語・英検対策・TOEIC対策）</li>
+              <li>オンライン日本語講師</li>
+              <li>翻訳業務</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ════════════════════════════════════ -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-h2 fade-up">よくある質問</h2>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q"><span>初心者でも大丈夫ですか？</span><span class="icon">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">もちろんです。LeaPASSは初心者から上級者まで対応しています。あなたのレベルに合わせた完全オーダーメイドのカリキュラムを作成します。</div></div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q"><span>仕事が忙しくても続けられますか？</span><span class="icon">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">はい。毎日のチャットサポートはあなたのペースに合わせて対応します。月2回の面談も、ご都合の良い時間に設定できます。</div></div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q"><span>どのくらいで結果が出ますか？</span><span class="icon">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">個人差はありますが、1ヶ月の本番TOEICで150点以上アップした受講生もいます。「何をやるか」が明確になれば、エンジンは自然にかかります。</div></div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q"><span>オンラインで完結しますか？</span><span class="icon">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">はい。すべてLINE・Zoom・オンラインコンテンツで完結します。コーチがオーストラリア在住のため、日本にいながら海外とリアルタイムでつながれる環境です。</div></div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q"><span>無料面談で何を話しますか？</span><span class="icon">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">現在のスコア・目標スコア・学習状況・悩みを60分でヒアリングします。最後に初期の学習プランをその場でお伝えするので、「何から始めればいいか分からない」という状態はその日のうちに解消されます。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ════════════════════════════════ -->
+<section id="contact">
+  <p class="section-label">Discover a Better Way</p>
+  <h2>60分無料面談で<br>あなたのTOEICを変える</h2>
+  <p>今の悩みを正直に話してください。<br>まずは気軽なLINE相談から、どうぞ。</p>
+  <div class="cta-buttons">
+    <a href="https://lin.ee/nHNCS41" class="btn-amber">60分無料面談を予約する ›</a>
+    <a href="https://lin.ee/nHNCS41" class="btn-line">LINEで相談する</a>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═════════════════════════════════ -->
+<footer>
+  <p class="footer-logo">LeaPASS</p>
+  <p class="footer-tagline">TOEICで飛立つ、理想への軌跡</p>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/reo_toeiceng/" target="_blank">Instagram</a>
+    <a href="https://www.threads.net/@reo_toeiceng" target="_blank">Threads</a>
+    <a href="https://www.youtube.com/@reo_toeiceng" target="_blank">YouTube</a>
+    <a href="https://note.com/reo_toeiceng" target="_blank">note</a>
+  </div>
+  <p class="footer-copy">© LeaPASS. All Rights Reserved.</p>
+</footer>
+
+<script>
+  // Header scroll
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 4) * 0.07}s`;
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
