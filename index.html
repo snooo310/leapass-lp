@@ -60,21 +60,26 @@
 
     /* ─── HERO ───────────────────────────────── */
     #hero {
-      position: relative; min-height: 100svh;
+      position: relative;
+      min-height: 100vh;
+      min-height: 100svh;
       display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
+      overflow: hidden; padding: 80px 5vw;
     }
     .hero-bg {
-      position: absolute; inset: 0;
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
       background: url('LeaPASS/story3_web.jpg') center/cover no-repeat;
+      z-index: 0;
     }
     .hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(160deg, rgba(58,82,112,.72) 0%, rgba(127,200,222,.45) 100%);
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(160deg, rgba(30,45,70,.78) 0%, rgba(58,82,112,.55) 100%);
+      z-index: 1;
     }
     .hero-content {
       position: relative; z-index: 2; text-align: center;
       padding: 0 1.25rem; width: 100%; max-width: 720px;
+      margin: auto;
     }
     .hero-service-name {
       font-size: clamp(1rem, 3vw, 1.4rem);
@@ -114,7 +119,7 @@
     @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
 
     /* ─── SECTION COMMONS ─────────────────────── */
-    section { padding: 80px 5vw; }
+    section:not(#hero) { padding: 80px 5vw; }
     .section-label {
       font-size: .7rem; font-weight: 600; letter-spacing: .18em;
       text-transform: uppercase; color: var(--sky); margin-bottom: .4rem;
@@ -131,7 +136,7 @@
     .benefits-header { text-align: center; margin-bottom: 3.5rem; }
     .benefits-header .section-label { color: rgba(127,200,222,.9); }
     .benefits-header .section-h2 { color: var(--white); font-size: clamp(1.7rem,4vw,2.6rem); }
-    .benefits-lead { color: rgba(255,255,255,.75); font-size: 1rem; margin: .5rem auto 0; max-width: 520px; text-align: center; line-height: 1.9; }
+    .benefits-lead { color: rgba(255,255,255,.75); font-size: 1rem; margin: .5rem auto 2.5rem; max-width: 520px; text-align: center; line-height: 1.9; }
     .benefits-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
     .benefit-card {
       background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
@@ -388,7 +393,7 @@
       .profile-wrap { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
     }
     @media (max-width: 540px) {
-      section { padding: 60px 1.2rem; }
+      section:not(#hero) { padding: 60px 1.2rem; }
       .results-grid { grid-template-columns: 1fr; }
       .illust-grid, .illust-grid-2 { grid-template-columns: repeat(2,1fr); gap: 1rem; }
       .illust-icon { width: 64px; height: 64px; border-radius: 16px; }
@@ -496,7 +501,7 @@
 <section id="intro">
   <div class="split">
     <div class="split-img fade-up">
-      <img src="LeaPASS/story1_web.jpg" alt="LeaPASS">
+      <img src="LeaPASS/profile_web.jpg" alt="Reo Takeshita - LeaPASSコーチ">
     </div>
     <div class="split-text fade-up">
       <p class="section-label">What is LeaPASS</p>
