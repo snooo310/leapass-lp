@@ -10,6 +10,7 @@
 
     :root {
       --navy:   #1B3F6B;
+      --navy-t: #1565C0;
       --sky:    #7FC8DE;
       --sky-lt: #EDF8FC;
       --pink:   #F2A7BE;
@@ -126,7 +127,7 @@
     }
     .section-h2 {
       font-size: clamp(1.5rem, 3.5vw, 2.4rem);
-      font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: .8rem;
+      font-weight: 700; color: var(--navy-t); line-height: 1.3; margin-bottom: .8rem;
     }
     .section-lead { font-size: .95rem; color: var(--muted); line-height: 1.9; max-width: 560px; }
 
@@ -145,11 +146,12 @@
     }
     .benefit-card:hover { transform: translateY(-4px); background: rgba(255,255,255,.13); }
     .benefit-icon {
-      width: 72px; height: 72px; border-radius: 20px;
-      background: rgba(242,167,190,.2); border: 1.5px solid rgba(242,167,190,.4);
+      width: 80px; height: 80px; border-radius: 20px;
+      background: rgba(255,255,255,.95);
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 1.2rem; font-size: 2rem;
+      margin: 0 auto 1.2rem; overflow: hidden; padding: 8px;
     }
+    .benefit-icon img { width: 100%; height: 100%; object-fit: contain; }
     .benefit-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--pink); margin-bottom: .7rem; line-height: 1.4; }
     .benefit-card p { font-size: .875rem; color: rgba(255,255,255,.78); line-height: 1.85; }
     .benefit-message {
@@ -174,7 +176,7 @@
     .pain-illust { height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
     .pain-illust img { height: 110px; width: auto; object-fit: contain; }
     .pain-num { font-size: .65rem; font-weight: 700; color: var(--pink); letter-spacing: .1em; margin-bottom: .5rem; }
-    .pain-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; }
+    .pain-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy-t); margin-bottom: .5rem; }
     .pain-card p  { font-size: .85rem; color: var(--muted); line-height: 1.75; }
 
     /* ─── INTRO ───────────────────────────────── */
@@ -207,7 +209,7 @@
     .reason-img-wrap img { width: 75%; height: auto; object-fit: contain; }
     .reason-text { display: flex; flex-direction: column; gap: .75rem; }
     .reason-num { font-size: .65rem; font-weight: 700; color: var(--pink); letter-spacing: .15em; }
-    .reason-h3 { font-size: clamp(1.2rem,2.5vw,1.6rem); font-weight: 700; color: var(--navy); line-height: 1.35; }
+    .reason-h3 { font-size: clamp(1.2rem,2.5vw,1.6rem); font-weight: 700; color: var(--navy-t); line-height: 1.35; }
     .reason-body { font-size: .9rem; color: var(--muted); line-height: 1.9; }
 
     /* ─── PROGRAM ────────────────────────────── */
@@ -296,7 +298,7 @@
     }
     .profile-photo { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); }
     .profile-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; }
-    .profile-name { font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
+    .profile-name { font-size: 1.5rem; font-weight: 700; color: var(--navy-t); margin-bottom: .2rem; }
     .profile-title { font-size: .85rem; color: var(--sky); font-weight: 600; margin-bottom: 1.5rem; }
     .profile-list { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
     .profile-list li {
@@ -315,7 +317,7 @@
     }
     .faq-q {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1.2rem 1.4rem; cursor: pointer; font-weight: 600; color: var(--navy);
+      padding: 1.2rem 1.4rem; cursor: pointer; font-weight: 600; color: var(--navy-t);
       font-size: .925rem; gap: 1rem;
     }
     .faq-q .icon { transition: transform .25s; color: var(--pink); flex-shrink: 0; font-size: 1.1rem; }
@@ -702,8 +704,8 @@
             <p class="result-bg">大学2年生・メルボルン在住</p>
           </div>
         </div>
-        <p class="result-score">430点 <span class="arrow">→</span> 600点超え <strong>+150点以上</strong></p>
-        <blockquote>「指示がめちゃくちゃ的確で具体的。やることが全部明確になってから、あとはやるだけでした。1ヶ月で600点超えを達成！」</blockquote>
+        <p class="result-score">550点 <span class="arrow">→</span> 695点 <strong>+150点（25日）</strong></p>
+        <blockquote>「指示がめちゃくちゃ的確で具体的。やることが全部明確になってから、あとはやるだけでした。25日で150点アップ達成！」</blockquote>
       </div>
 
       <div class="result-card fade-up">
@@ -799,7 +801,7 @@
           </video>
         </div>
         <div class="video-caption">
-          <p class="video-score">430点 → <span style="color:var(--pink);font-weight:700">600点超え (+150点以上)</span></p>
+          <p class="video-score">550点 → <span style="color:var(--pink);font-weight:700">695点 (+150点 / 25日)</span></p>
           <p class="video-quote">「指示が的確で具体的で、やることが全部明確になってから、あとはやるだけでした。一人だとサボるけどコーチのためにやろうって思えた。」</p>
         </div>
       </div>
