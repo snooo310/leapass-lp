@@ -9,7 +9,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:   #3A5270;
+      --navy:   #1B3F6B;
       --sky:    #7FC8DE;
       --sky-lt: #EDF8FC;
       --pink:   #F2A7BE;
@@ -183,8 +183,8 @@
       max-width: 1060px; margin: 0 auto;
       display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: center;
     }
-    .split-img { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/3; box-shadow: var(--shadow-md); }
-    .split-img img { width: 100%; height: 100%; object-fit: cover; }
+    .split-img { border-radius: var(--radius); overflow: hidden; aspect-ratio: 9/16; box-shadow: var(--shadow-md); max-width: 340px; }
+    .split-img img, .split-img video { width: 100%; height: 100%; object-fit: cover; display: block; }
     .split-text { display: flex; flex-direction: column; gap: .9rem; }
 
     /* ─── REASONS ─────────────────────────────── */
@@ -268,13 +268,13 @@
     #experience { background: var(--bg); }
     .exp-inner { max-width: 1060px; margin: 0 auto; }
     .exp-header { text-align: center; margin-bottom: 3rem; }
-    .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .video-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; max-width: 760px; margin: 0 auto; }
     .video-block {}
-    .video-name { font-size: .85rem; font-weight: 700; color: var(--sky); letter-spacing: .06em; margin-bottom: .6rem; }
+    .video-name { font-size: .9rem; font-weight: 700; color: var(--navy); letter-spacing: .04em; margin-bottom: .75rem; }
     .video-wrap {
       border-radius: var(--radius); overflow: hidden;
       background: #000; box-shadow: var(--shadow-md);
-      aspect-ratio: 9/16; position: relative;
+      aspect-ratio: 16/9; position: relative;
     }
     .video-wrap video {
       width: 100%; height: 100%; object-fit: cover; display: block;
@@ -389,7 +389,7 @@
       .illust-grid { grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
       .illust-grid-2 { grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
       .results-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-      .video-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .video-grid { max-width: 100%; }
       .profile-wrap { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
     }
     @media (max-width: 540px) {
@@ -442,17 +442,23 @@
     </div>
     <div class="benefits-grid">
       <div class="benefit-card fade-up">
-        <div class="benefit-icon">✨</div>
+        <div class="benefit-icon" style="font-size:0;">
+          <img src="LeaPASS/illust/motivation.png" alt="自信が変わる" style="width:52px;height:52px;object-fit:contain;">
+        </div>
         <h3>自信が変わる</h3>
         <p>スコアが上がると、英語への恐怖が消え、自分への自信が生まれる。「私はできる」という感覚が、日常のすべてを変えていく。</p>
       </div>
       <div class="benefit-card fade-up">
-        <div class="benefit-icon">🌏</div>
+        <div class="benefit-icon" style="font-size:0;">
+          <img src="LeaPASS/illust/f_1775.png" alt="選択肢が広がる" style="width:60px;height:60px;object-fit:contain;">
+        </div>
         <h3>選択肢が広がる</h3>
         <p>海外移住・転職・留学・キャリアアップ――TOEICスコアは、あなたが描いた未来へのパスポートになる。</p>
       </div>
       <div class="benefit-card fade-up">
-        <div class="benefit-icon">🚀</div>
+        <div class="benefit-icon" style="font-size:0;">
+          <img src="LeaPASS/illust/f_1838.png" alt="挑戦し続けられる" style="width:60px;height:60px;object-fit:contain;">
+        </div>
         <h3>挑戦し続けられる</h3>
         <p>英語力が身につくと、「まだできることがある」という前向きさが生まれる。理想の人生へ、何度でも挑戦できるようになる。</p>
       </div>
@@ -501,7 +507,7 @@
 <section id="intro">
   <div class="split">
     <div class="split-img fade-up">
-      <img src="LeaPASS/profile_web.jpg" alt="Reo Takeshita - LeaPASSコーチ">
+      <video src="LeaPASS/intro_video.mp4" autoplay muted loop playsinline></video>
     </div>
     <div class="split-text fade-up">
       <p class="section-label">What is LeaPASS</p>
@@ -786,7 +792,7 @@
 
       <!-- りんなさん -->
       <div class="video-block fade-up">
-        <p class="video-name">🎤 りんなさん（大学2年生・メルボルン在住）</p>
+        <p class="video-name">りんなさん（大学2年生・メルボルン在住）</p>
         <div class="video-wrap">
           <video controls playsinline preload="metadata" poster="LeaPASS/rinna_thumbnail.jpg">
             <source src="LeaPASS/Zoom/Rinna_youtube_v2.mp4" type="video/mp4">
@@ -800,7 +806,7 @@
 
       <!-- かりんちゃん -->
       <div class="video-block fade-up">
-        <p class="video-name">🎤 かりんさん（元看護師・ワーホリ予定）</p>
+        <p class="video-name">かりんさん（元看護師・ワーホリ予定）</p>
         <div class="video-wrap">
           <video controls playsinline preload="metadata" poster="LeaPASS/karin_thumbnail.png">
             <source src="LeaPASS/Zoom/Karin_highlight_final.mp4" type="video/mp4">
