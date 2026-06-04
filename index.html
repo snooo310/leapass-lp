@@ -9,7 +9,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:   #1E3A5F;
+      --navy:   #2B6CB0;
       --sky:    #5AACDB;
       --sky-lt: #EAF5FB;
       --amber:  #F0A04B;
@@ -45,7 +45,7 @@
       display: flex; align-items: center; gap: 8px;
     }
     .logo img {
-      width: 40px; height: 40px; border-radius: 50%; object-fit: cover;
+      width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
       box-shadow: 0 2px 8px rgba(0,0,0,.15);
     }
     header nav { display: flex; gap: 2rem; }
@@ -194,11 +194,12 @@
     }
     .illust-item { text-align: center; display: flex; flex-direction: column; align-items: center; gap: .75rem; }
     .illust-icon {
-      width: 80px; height: 80px;
+      width: 96px; height: 96px;
       background: var(--sky-lt); border-radius: 20px;
       display: flex; align-items: center; justify-content: center;
+      overflow: hidden; padding: 8px;
     }
-    .illust-icon svg { width: 44px; height: 44px; }
+    .illust-icon img { width: 100%; height: 100%; object-fit: contain; }
     .illust-item h4 { font-size: .9rem; font-weight: 700; color: var(--navy); }
     .illust-item p  { font-size: .8rem; color: var(--muted); line-height: 1.7; }
 
@@ -255,6 +256,45 @@
       border-radius: 2px;
     }
     .testimonial-name { font-size: .85rem; color: var(--muted); }
+
+    /* ─── MINI TESTIMONIALS ─────────────────── */
+    .mini-testimonials {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+    .mini-card {
+      background: var(--white); border-radius: var(--radius);
+      border: 1px solid var(--border); padding: 1.75rem 1.5rem;
+      box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 1rem;
+    }
+    .mini-card-top {
+      display: flex; align-items: center; gap: .9rem;
+    }
+    .mini-avatar {
+      width: 64px; height: 64px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+    }
+    .mini-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .mini-card-info { display: flex; flex-direction: column; gap: .2rem; }
+    .mini-score-badge {
+      display: inline-flex; align-items: center; gap: .35rem;
+      background: var(--sky-lt); border: 1.5px solid var(--sky);
+      border-radius: 40px; padding: .25rem .75rem;
+      color: var(--navy); font-weight: 700; font-size: .8rem; width: fit-content;
+    }
+    .mini-score-badge .up { color: var(--amber); }
+    .mini-name { font-size: .78rem; color: var(--muted); }
+    .mini-quote {
+      font-size: .875rem; line-height: 1.85; color: var(--text);
+      position: relative; padding-left: 1rem;
+    }
+    .mini-quote::before {
+      content: ''; position: absolute; left: 0; top: .3rem;
+      width: 3px; height: calc(100% - .6rem);
+      background: linear-gradient(to bottom, var(--sky), var(--navy));
+      border-radius: 2px;
+    }
+    .mini-label { font-size: .72rem; font-weight: 600; color: var(--sky); letter-spacing: .08em; text-transform: uppercase; }
 
     /* ─── PROFILE ─────────────────────────────── */
     #profile { background: var(--white); }
@@ -374,6 +414,8 @@
       .testimonial { grid-template-columns: 1fr; }
       .testimonial-img img { aspect-ratio: 4/3; }
 
+      .mini-testimonials { grid-template-columns: 1fr; }
+
       .profile-grid { grid-template-columns: 1fr; }
       .profile-photo { max-width: 220px; }
       .profile-cols { grid-template-columns: 1fr; gap: 1rem; }
@@ -382,8 +424,7 @@
     @media (max-width: 480px) {
       section { padding: 60px 1.1rem; }
       .illust-grid, .illust-grid-2 { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-      .illust-icon { width: 64px; height: 64px; border-radius: 16px; }
-      .illust-icon svg { width: 36px; height: 36px; }
+      .illust-icon { width: 72px; height: 72px; border-radius: 16px; }
     }
   </style>
 </head>
@@ -392,7 +433,7 @@
 <!-- ═══ HEADER ═══════════════════════════════ -->
 <header id="header">
   <a href="#" class="logo">
-    <img src="LeaPASS/LeaPASS_logo_small.png" alt="LeaPASS">
+    <img src="LeaPASS/LeaPASS_logo_pink.png" alt="LeaPASS">
   </a>
   <nav>
     <a href="#reasons">サービス</a>
@@ -458,7 +499,7 @@
         一人ひとりの現在地と目標を見極め、最短で結果を出す学習ロードマップを設計します。
       </p>
       <p class="section-lead" style="margin-top:.25rem;">
-        エージェントを仲介せず、あなただけのプランで理想のスコアへ。
+        あなたと一対一で向き合い、あなただけのプランで理想のスコアへ。
         出発前の夢を、英語というパスポートで現実にします。
       </p>
     </div>
@@ -500,120 +541,64 @@
     <h2 class="section-h2 fade-up">コーチングの内容</h2>
   </div>
 
-  <!-- アイコングリッド 上段 -->
+  <!-- イラストグリッド 上段 -->
   <div class="illust-grid">
-    <!-- オンラインコンテンツ -->
     <div class="illust-item fade-up">
       <div class="illust-icon">
-        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="8" width="36" height="24" rx="3" stroke="#5AACDB" stroke-width="2.2"/>
-          <path d="M14 32l-3 6M30 32l3 6M10 38h24" stroke="#5AACDB" stroke-width="2.2" stroke-linecap="round"/>
-          <circle cx="22" cy="20" r="5" stroke="#1E3A5F" stroke-width="2" fill="none"/>
-          <path d="M20 20l1.5 1.5L25 18" stroke="#1E3A5F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <img src="LeaPASS/illust/laptop.png" alt="オンラインコンテンツ">
       </div>
       <h4>オンラインコンテンツ</h4>
       <p>解説動画や教材などを<br>半永久的に利用可能</p>
     </div>
-    <!-- パーソナル学習計画 -->
     <div class="illust-item fade-up">
       <div class="illust-icon">
-        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="8" y="10" width="28" height="28" rx="3" stroke="#5AACDB" stroke-width="2.2"/>
-          <path d="M15 10V6M29 10V6" stroke="#5AACDB" stroke-width="2.2" stroke-linecap="round"/>
-          <path d="M8 18h28" stroke="#5AACDB" stroke-width="2"/>
-          <path d="M14 25l2 2 5-5" stroke="#1E3A5F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M14 31l2 2 5-5" stroke="#1E3A5F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M27 26h3M27 32h3" stroke="#1E3A5F" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>
+        <img src="LeaPASS/illust/coaching.png" alt="パーソナル学習計画">
       </div>
       <h4>パーソナル学習計画</h4>
       <p>ひとりひとりに合った<br>学習ロードマップを提案</p>
     </div>
-    <!-- 日報システム -->
     <div class="illust-item fade-up">
       <div class="illust-icon">
-        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="12" y="6" width="20" height="32" rx="4" stroke="#5AACDB" stroke-width="2.2"/>
-          <path d="M18 12h8M16 18h12M16 24h8" stroke="#1E3A5F" stroke-width="1.8" stroke-linecap="round"/>
-          <circle cx="22" cy="33" r="2" fill="#5AACDB"/>
-          <path d="M30 4l3-2 1 3-3 1z" fill="#F0A04B"/>
-          <path d="M33 2l2 6" stroke="#F0A04B" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
+        <img src="LeaPASS/illust/study.png" alt="日報システム">
       </div>
       <h4>日報システム</h4>
       <p>毎日報告のシステム化で<br>モチベーション維持</p>
     </div>
-    <!-- 定期面談 -->
     <div class="illust-item fade-up">
       <div class="illust-icon">
-        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="12" width="26" height="20" rx="3" stroke="#5AACDB" stroke-width="2.2"/>
-          <path d="M30 17l10-5v20l-10-5V17z" stroke="#5AACDB" stroke-width="2.2" stroke-linejoin="round"/>
-          <circle cx="17" cy="22" r="4" fill="#EAF5FB" stroke="#1E3A5F" stroke-width="1.8"/>
-          <circle cx="17" cy="22" r="1.5" fill="#1E3A5F"/>
-        </svg>
+        <img src="LeaPASS/illust/zoom.png" alt="定期面談">
       </div>
       <h4>定期面談</h4>
       <p>最低月2回の進捗確認で<br>ロードマップを伴走</p>
     </div>
   </div>
 
-  <!-- アイコングリッド 下段 -->
+  <!-- イラストグリッド 下段 -->
   <div class="illust-grid-2">
-    <!-- Zoom -->
     <div class="illust-item fade-up">
       <div class="illust-icon">
-        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="9" width="24" height="18" rx="3" stroke="#5AACDB" stroke-width="2.2"/>
-          <path d="M27 14l14-7v26l-14-7V14z" stroke="#5AACDB" stroke-width="2.2" stroke-linejoin="round"/>
-          <circle cx="11" cy="18" r="3.5" fill="#EAF5FB" stroke="#1E3A5F" stroke-width="1.7"/>
-          <path d="M5 30c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#1E3A5F" stroke-width="1.7" stroke-linecap="round"/>
-          <path d="M8 38h28" stroke="#5AACDB" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+        <img src="LeaPASS/illust/meeting.png" alt="Zoom面談">
       </div>
       <h4>Zoom面談</h4>
       <p>オンラインで完結する<br>コーチングセッション</p>
     </div>
-    <!-- LINEサポート -->
     <div class="illust-item fade-up">
       <div class="illust-icon">
-        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="12" y="6" width="20" height="34" rx="4" stroke="#5AACDB" stroke-width="2.2"/>
-          <rect x="17" y="10" width="10" height="2.5" rx="1.25" fill="#5AACDB"/>
-          <rect x="15" y="16" width="14" height="12" rx="2" fill="#EAF5FB" stroke="#1E3A5F" stroke-width="1.5"/>
-          <path d="M18 21h8M18 24h5" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="22" cy="35" r="2" fill="#5AACDB"/>
-        </svg>
+        <img src="LeaPASS/illust/line_spt.png" alt="LINEサポート">
       </div>
       <h4>LINE サポート</h4>
       <p>毎日のチャットで<br>疑問をすぐに解消</p>
     </div>
-    <!-- コミュニティ -->
     <div class="illust-item fade-up">
       <div class="illust-icon">
-        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="22" cy="14" r="5" stroke="#5AACDB" stroke-width="2.2" fill="none"/>
-          <path d="M10 36c0-6.6 5.4-12 12-12s12 5.4 12 12" stroke="#5AACDB" stroke-width="2.2" stroke-linecap="round"/>
-          <circle cx="8" cy="16" r="3.5" stroke="#1E3A5F" stroke-width="1.7" fill="none"/>
-          <path d="M2 32c0-4.4 2.7-7 6-7" stroke="#1E3A5F" stroke-width="1.7" stroke-linecap="round"/>
-          <circle cx="36" cy="16" r="3.5" stroke="#1E3A5F" stroke-width="1.7" fill="none"/>
-          <path d="M42 32c0-4.4-2.7-7-6-7" stroke="#1E3A5F" stroke-width="1.7" stroke-linecap="round"/>
-        </svg>
+        <img src="LeaPASS/illust/community.png" alt="勉強コミュニティ">
       </div>
       <h4>勉強コミュニティ</h4>
       <p>仲間と一緒に学ぶ<br>オンライン勉強会</p>
     </div>
-    <!-- 目標達成 -->
     <div class="illust-item fade-up">
       <div class="illust-icon">
-        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 38V28l8-8 8 6 8-14" stroke="#5AACDB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M32 12h6v6" stroke="#5AACDB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <rect x="6" y="34" width="8" height="4" rx="1" fill="#EAF5FB" stroke="#1E3A5F" stroke-width="1.5"/>
-          <rect x="18" y="28" width="8" height="10" rx="1" fill="#EAF5FB" stroke="#1E3A5F" stroke-width="1.5"/>
-          <rect x="30" y="22" width="8" height="16" rx="1" fill="#EAF5FB" stroke="#5AACDB" stroke-width="1.8"/>
-        </svg>
+        <img src="LeaPASS/illust/motivation.png" alt="目標スコア達成">
       </div>
       <h4>目標スコア達成</h4>
       <p>明確な指標で<br>確実にスコアアップ</p>
@@ -636,7 +621,7 @@
       </div>
       <div class="result-card fade-up">
         <p class="result-score">600点超え</p>
-        <p class="result-name">1ヶ月コーチング後、本番TOEIC</p>
+        <p class="result-name">Amiさん・1ヶ月コーチング後、本番TOEIC</p>
         <blockquote>「スコアが上がるにつれて日常会話も楽になっていきました。リスニング対策がそのまま現地での会話に直結していると感じます。」</blockquote>
       </div>
       <div class="result-card fade-up">
@@ -653,9 +638,11 @@
   <div class="exp-inner">
     <p class="section-label">Experience</p>
     <h2 class="section-h2 fade-up">サポート生の声</h2>
+
+    <!-- りんな（メイン） -->
     <div class="testimonial" style="margin-top:2.5rem;">
       <div class="testimonial-img fade-up">
-        <img src="LeaPASS/preview_before.jpg" alt="りんなさん 受講インタビュー">
+        <img src="LeaPASS/rinna_photo.jpg" alt="りんなさん 受講インタビュー">
       </div>
       <div class="testimonial-body fade-up">
         <div class="score-badge">
@@ -672,6 +659,74 @@
         </blockquote>
         <p class="testimonial-name">りんなさん・大学2年生<br>（オーストラリア・メルボルン在住）</p>
       </div>
+    </div>
+
+    <!-- ミニ体験談カード：Ami・Yuna・かりん -->
+    <div class="mini-testimonials">
+
+      <!-- Ami -->
+      <div class="mini-card fade-up">
+        <div class="mini-card-top">
+          <div class="mini-avatar">
+            <img src="LeaPASS/ami_photo.jpg" alt="Amiさん">
+          </div>
+          <div class="mini-card-info">
+            <div class="mini-score-badge">
+              <span class="up">スコアアップ達成</span>
+            </div>
+            <p class="mini-name">Amiさん（オーストラリアワーホリ中）</p>
+          </div>
+        </div>
+        <p class="mini-label">英語コーチング受講生</p>
+        <blockquote class="mini-quote">
+          「スコアが上がるにつれて日常会話も楽になっていきました。
+          リスニング対策がそのまま現地での会話に直結していると感じます。
+          <strong>英語を勉強するのが初めて楽しいと思えた</strong>のはレオさんのおかげです。」
+        </blockquote>
+      </div>
+
+      <!-- Yuna -->
+      <div class="mini-card fade-up">
+        <div class="mini-card-top">
+          <div class="mini-avatar">
+            <img src="LeaPASS/yuna_photo.jpg" alt="Yunaさん">
+          </div>
+          <div class="mini-card-info">
+            <div class="mini-score-badge">
+              <span class="up">継続率100%</span>
+            </div>
+            <p class="mini-name">Yunaさん（オーストラリアワーホリ中）</p>
+          </div>
+        </div>
+        <p class="mini-label">英語コーチング受講生</p>
+        <blockquote class="mini-quote">
+          「誰かに成果を伝える場があるから、モチベーションが続く。
+          コーチのリプライが嬉しくて、今日も頑張ろうと思えます。
+          <strong>一人じゃ絶対続かなかった</strong>と心から思います。」
+        </blockquote>
+      </div>
+
+      <!-- かりん -->
+      <div class="mini-card fade-up">
+        <div class="mini-card-top">
+          <div class="mini-avatar" style="background:var(--sky-lt); display:flex; align-items:center; justify-content:center;">
+            <span style="font-size:1.8rem;">🌸</span>
+          </div>
+          <div class="mini-card-info">
+            <div class="mini-score-badge">
+              <span class="up">ワーホリ準備中</span>
+            </div>
+            <p class="mini-name">かりんさん（元看護師・ワーホリ予定）</p>
+          </div>
+        </div>
+        <p class="mini-label">英語コーチング受講生</p>
+        <blockquote class="mini-quote">
+          「看護師として働きながら英語を勉強する時間を作れずにいました。
+          でもレオさんのおかげで<strong>「自分にもできる」と初めて本気で思えた</strong>。
+          オーストラリアでの夢に向けて全力で取り組んでいます！」
+        </blockquote>
+      </div>
+
     </div>
   </div>
 </section>
