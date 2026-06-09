@@ -9,8 +9,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:   #1E3A5F;
-      --navy-t: #1E3A5F;
+      --navy:   #3A5270;
       --sky:    #7FC8DE;
       --sky-lt: #EDF8FC;
       --pink:   #F2A7BE;
@@ -127,7 +126,7 @@
     }
     .section-h2 {
       font-size: clamp(1.5rem, 3.5vw, 2.4rem);
-      font-weight: 700; color: var(--navy-t); line-height: 1.3; margin-bottom: .8rem;
+      font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: .8rem;
     }
     .section-lead { font-size: .95rem; color: var(--muted); line-height: 1.9; max-width: 560px; }
 
@@ -146,12 +145,11 @@
     }
     .benefit-card:hover { transform: translateY(-4px); background: rgba(255,255,255,.13); }
     .benefit-icon {
-      width: 80px; height: 80px; border-radius: 20px;
-      background: rgba(255,255,255,.95);
+      width: 72px; height: 72px; border-radius: 20px;
+      background: rgba(242,167,190,.2); border: 1.5px solid rgba(242,167,190,.4);
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 1.2rem; overflow: hidden; padding: 8px;
+      margin: 0 auto 1.2rem; font-size: 2rem;
     }
-    .benefit-icon img { width: 100%; height: 100%; object-fit: contain; }
     .benefit-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--pink); margin-bottom: .7rem; line-height: 1.4; }
     .benefit-card p { font-size: .875rem; color: rgba(255,255,255,.78); line-height: 1.85; }
     .benefit-message {
@@ -176,7 +174,7 @@
     .pain-illust { height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
     .pain-illust img { height: 110px; width: auto; object-fit: contain; }
     .pain-num { font-size: .65rem; font-weight: 700; color: var(--pink); letter-spacing: .1em; margin-bottom: .5rem; }
-    .pain-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy-t); margin-bottom: .5rem; }
+    .pain-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; }
     .pain-card p  { font-size: .85rem; color: var(--muted); line-height: 1.75; }
 
     /* ─── INTRO ───────────────────────────────── */
@@ -185,8 +183,8 @@
       max-width: 1060px; margin: 0 auto;
       display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: center;
     }
-    .split-img { border-radius: var(--radius); overflow: hidden; aspect-ratio: 9/16; box-shadow: var(--shadow-md); max-width: 340px; }
-    .split-img img, .split-img video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .split-img { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/3; box-shadow: var(--shadow-md); }
+    .split-img img { width: 100%; height: 100%; object-fit: cover; }
     .split-text { display: flex; flex-direction: column; gap: .9rem; }
 
     /* ─── REASONS ─────────────────────────────── */
@@ -209,7 +207,7 @@
     .reason-img-wrap img { width: 75%; height: auto; object-fit: contain; }
     .reason-text { display: flex; flex-direction: column; gap: .75rem; }
     .reason-num { font-size: .65rem; font-weight: 700; color: var(--pink); letter-spacing: .15em; }
-    .reason-h3 { font-size: clamp(1.2rem,2.5vw,1.6rem); font-weight: 700; color: var(--navy-t); line-height: 1.35; }
+    .reason-h3 { font-size: clamp(1.2rem,2.5vw,1.6rem); font-weight: 700; color: var(--navy); line-height: 1.35; }
     .reason-body { font-size: .9rem; color: var(--muted); line-height: 1.9; }
 
     /* ─── PROGRAM ────────────────────────────── */
@@ -270,13 +268,13 @@
     #experience { background: var(--bg); }
     .exp-inner { max-width: 1060px; margin: 0 auto; }
     .exp-header { text-align: center; margin-bottom: 3rem; }
-    .video-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; max-width: 760px; margin: 0 auto; }
-    .video-block {}
-    .video-name { font-size: .9rem; font-weight: 700; color: var(--navy); letter-spacing: .04em; margin-bottom: .75rem; }
+    .video-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
+    .video-block { width: 100%; max-width: 320px; }
+    .video-name { font-size: .85rem; font-weight: 700; color: var(--sky); letter-spacing: .06em; margin-bottom: .6rem; }
     .video-wrap {
       border-radius: var(--radius); overflow: hidden;
       background: #000; box-shadow: var(--shadow-md);
-      aspect-ratio: 16/9; position: relative;
+      aspect-ratio: 9/16; position: relative;
     }
     .video-wrap video {
       width: 100%; height: 100%; object-fit: cover; display: block;
@@ -298,7 +296,7 @@
     }
     .profile-photo { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); }
     .profile-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; }
-    .profile-name { font-size: 1.5rem; font-weight: 700; color: var(--navy-t); margin-bottom: .2rem; }
+    .profile-name { font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
     .profile-title { font-size: .85rem; color: var(--sky); font-weight: 600; margin-bottom: 1.5rem; }
     .profile-list { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
     .profile-list li {
@@ -317,7 +315,7 @@
     }
     .faq-q {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1.2rem 1.4rem; cursor: pointer; font-weight: 600; color: var(--navy-t);
+      padding: 1.2rem 1.4rem; cursor: pointer; font-weight: 600; color: var(--navy);
       font-size: .925rem; gap: 1rem;
     }
     .faq-q .icon { transition: transform .25s; color: var(--pink); flex-shrink: 0; font-size: 1.1rem; }
@@ -391,7 +389,7 @@
       .illust-grid { grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
       .illust-grid-2 { grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
       .results-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-      .video-grid { max-width: 100%; }
+      .video-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
       .profile-wrap { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
     }
     @media (max-width: 540px) {
@@ -409,7 +407,7 @@
 <!-- ═══ HEADER ═══════════════════════════════ -->
 <header id="header">
   <a href="#" class="logo">
-    <img src="LeaPASS/LeaPASS_logo_pink.png" alt="LeaPASS">
+    <img src="LeaPASS/LeaPASS.png" alt="LeaPASS">
   </a>
   <nav>
     <a href="#benefits">ベネフィット</a>
@@ -444,23 +442,17 @@
     </div>
     <div class="benefits-grid">
       <div class="benefit-card fade-up">
-        <div class="benefit-icon" style="font-size:0;">
-          <img src="LeaPASS/illust/motivation.png" alt="自信が変わる" style="width:52px;height:52px;object-fit:contain;">
-        </div>
+        <div class="benefit-icon">✨</div>
         <h3>自信が変わる</h3>
         <p>スコアが上がると、英語への恐怖が消え、自分への自信が生まれる。「私はできる」という感覚が、日常のすべてを変えていく。</p>
       </div>
       <div class="benefit-card fade-up">
-        <div class="benefit-icon" style="font-size:0;">
-          <img src="LeaPASS/illust/f_1775.png" alt="選択肢が広がる" style="width:60px;height:60px;object-fit:contain;">
-        </div>
+        <div class="benefit-icon">🌏</div>
         <h3>選択肢が広がる</h3>
         <p>海外移住・転職・留学・キャリアアップ――TOEICスコアは、あなたが描いた未来へのパスポートになる。</p>
       </div>
       <div class="benefit-card fade-up">
-        <div class="benefit-icon" style="font-size:0;">
-          <img src="LeaPASS/illust/f_1838.png" alt="挑戦し続けられる" style="width:60px;height:60px;object-fit:contain;">
-        </div>
+        <div class="benefit-icon">🚀</div>
         <h3>挑戦し続けられる</h3>
         <p>英語力が身につくと、「まだできることがある」という前向きさが生まれる。理想の人生へ、何度でも挑戦できるようになる。</p>
       </div>
@@ -509,7 +501,7 @@
 <section id="intro">
   <div class="split">
     <div class="split-img fade-up">
-      <video src="LeaPASS/intro_video.mp4" autoplay muted loop playsinline></video>
+      <img src="LeaPASS/profile_web.jpg" alt="Reo Takeshita - LeaPASSコーチ">
     </div>
     <div class="split-text fade-up">
       <p class="section-label">What is LeaPASS</p>
@@ -519,7 +511,7 @@
         一人ひとりの現在地と目標を見極め、最短で結果を出す学習ロードマップを設計します。
       </p>
       <p class="section-lead" style="margin-top:.25rem;">
-        あなたと一対一で向き合い、あなただけのプランで理想のスコアへ。
+        エージェントを仲介せず、あなただけのプランで理想のスコアへ。
         英語というパスポートで、あなたの描いた未来を現実にします。
       </p>
     </div>
@@ -691,21 +683,36 @@
     <div class="results-header">
       <p class="section-label">Results</p>
       <h2 class="section-h2 fade-up">受講生の実績</h2>
+      <p style="color:rgba(255,255,255,.6);font-size:.875rem;margin-top:.5rem;">モニター生アンケート・日報レポートより</p>
     </div>
     <div class="results-grid">
 
       <div class="result-card fade-up">
         <div class="result-head">
           <div class="result-avatar">
-            <img src="LeaPASS/rinna_photo.jpg" alt="りんなさん">
+            <img src="LeaPASS/preview_before.jpg" alt="りんなさん">
           </div>
           <div class="result-info">
             <p class="result-name">りんなさん</p>
             <p class="result-bg">大学2年生・メルボルン在住</p>
           </div>
         </div>
-        <p class="result-score">550点 <span class="arrow">→</span> 695点 <strong>+150点（25日）</strong></p>
-        <blockquote>「指示がめちゃくちゃ的確で具体的。やることが全部明確になってから、あとはやるだけでした。25日で150点アップ達成！」</blockquote>
+        <p class="result-score">430点 <span class="arrow">→</span> 600点超え <strong>+150点以上</strong></p>
+        <blockquote>「指示がめちゃくちゃ的確で具体的。やることが全部明確になってから、あとはやるだけでした。1ヶ月で600点超えを達成！」</blockquote>
+      </div>
+
+      <div class="result-card fade-up">
+        <div class="result-head">
+          <div class="result-avatar">
+            <img src="LeaPASS/karin_photo_new.jpg" alt="かりんさん">
+          </div>
+          <div class="result-info">
+            <p class="result-name">かりんさん</p>
+            <p class="result-bg">25〜29歳・ワーホリ中</p>
+          </div>
+        </div>
+        <p class="result-score">509点 <span class="arrow">→</span> 659点 <strong>+150点 / 1ヶ月</strong></p>
+        <blockquote>「コーチングのおかげで勉強の方向性が明確になった。1ヶ月でこんなに変わると思っていなかったので本当に驚きました！」</blockquote>
       </div>
 
       <div class="result-card fade-up">
@@ -718,14 +725,14 @@
             <p class="result-bg">25〜29歳・ワーホリ中</p>
           </div>
         </div>
-        <p class="result-score">470点 <span class="arrow">→</span> 621点 <strong>+151点（1ヶ月）</strong></p>
+        <p class="result-score">460点 <span class="arrow">→</span> 610点 <strong>+150点</strong></p>
         <blockquote>「ワーホリしながらでも毎日続けられた。英語日記と日報のおかげで、気づいたらスコアが大きく上がっていた。」</blockquote>
       </div>
 
       <div class="result-card fade-up">
         <div class="result-head">
           <div class="result-avatar">
-            <img src="LeaPASS/ami_photo.jpg" alt="Amiさん">
+            <span class="result-avatar-initial">A</span>
           </div>
           <div class="result-info">
             <p class="result-name">Amiさん</p>
@@ -739,7 +746,7 @@
       <div class="result-card fade-up">
         <div class="result-head">
           <div class="result-avatar">
-            <img src="LeaPASS/yuna_photo.jpg" alt="Yunaさん">
+            <span class="result-avatar-initial">Y</span>
           </div>
           <div class="result-info">
             <p class="result-name">Yunaさん</p>
@@ -748,34 +755,6 @@
         </div>
         <p class="result-score">430点スタート・受験中</p>
         <blockquote>「毎日15分でも続けられる仕組みを作ってもらった。洋楽を聴きながらリスニングを鍛えていたら、耳が慣れてきた！」</blockquote>
-      </div>
-
-      <div class="result-card fade-up">
-        <div class="result-head">
-          <div class="result-avatar">
-            <span class="result-avatar-initial">K</span>
-          </div>
-          <div class="result-info">
-            <p class="result-name">かりんさん</p>
-            <p class="result-bg">25〜29歳・元看護師</p>
-          </div>
-        </div>
-        <p class="result-score">509点 <span class="arrow">→</span> 659点 <strong>+150点（1ヶ月）</strong></p>
-        <blockquote>「自分一人で目標を立てるのってすごく難しくて。でも絶妙な目標を立ててもらって、迷いがなくなって、あとはやるだけでした。独学の限界を突破できました！」</blockquote>
-      </div>
-
-      <div class="result-card fade-up">
-        <div class="result-head">
-          <div class="result-avatar">
-            <span class="result-avatar-initial">✓</span>
-          </div>
-          <div class="result-info">
-            <p class="result-name">継続率 100%</p>
-            <p class="result-bg">受講中のモニター生全員</p>
-          </div>
-        </div>
-        <p class="result-score">全員が学習継続</p>
-        <blockquote>「誰かに成果を伝える場があるから、モチベーションが続く。コーチのリプライが嬉しくて、今日も頑張ろうと思えます。」</blockquote>
       </div>
 
     </div>
@@ -794,29 +773,29 @@
 
       <!-- りんなさん -->
       <div class="video-block fade-up">
-        <p class="video-name">りんなさん（大学2年生・メルボルン在住）</p>
+        <p class="video-name">🎤 りんなさん（大学2年生・メルボルン在住）</p>
         <div class="video-wrap">
-          <video controls playsinline preload="metadata" poster="LeaPASS/rinna_thumbnail.jpg">
+          <video controls playsinline preload="metadata" poster="LeaPASS/preview_before.jpg">
             <source src="LeaPASS/Zoom/Rinna_youtube_v2.mp4" type="video/mp4">
           </video>
         </div>
         <div class="video-caption">
-          <p class="video-score">550点 → <span style="color:var(--pink);font-weight:700">695点 (+150点 / 25日)</span></p>
-          <p class="video-quote">「指示が的確で具体的で、やることが全部明確になってから、あとはやるだけでした。<strong>一人だとサボるけどコーチのためにやろうって思えた。</strong>」</p>
+          <p class="video-score">430点 → <span style="color:var(--pink);font-weight:700">600点超え (+150点以上)</span></p>
+          <p class="video-quote">「指示が的確で具体的で、やることが全部明確になってから、あとはやるだけでした。一人だとサボるけどコーチのためにやろうって思えた。」</p>
         </div>
       </div>
 
       <!-- かりんちゃん -->
       <div class="video-block fade-up">
-        <p class="video-name">かりんさん（元看護師・ワーホリ予定）</p>
+        <p class="video-name">🎤 かりんちゃん（受講生）</p>
         <div class="video-wrap">
-          <video controls playsinline preload="metadata" poster="LeaPASS/karin_thumbnail.png">
-            <source src="LeaPASS/Zoom/Karin_jisseki_final.mp4" type="video/mp4">
+          <video controls playsinline preload="metadata">
+            <source src="LeaPASS/Zoom/Karin_highlight_final.mp4" type="video/mp4">
           </video>
         </div>
         <div class="video-caption">
-          <p class="video-score">450点 → <span style="color:var(--pink);font-weight:700">630点 (+180点 / 1ヶ月)</span></p>
-          <p class="video-quote">「自分一人で目標を立てるのってすごく難しくて。でも絶妙な目標を立ててもらって、<strong>迷いがなくなって、あとはやるだけでした</strong>。独学の限界を突破できました！」</p>
+          <p class="video-score">受講後のリアルな声</p>
+          <p class="video-quote">実際にコーチングを体験してみての感想を語ってもらいました。</p>
         </div>
       </div>
 
@@ -836,10 +815,6 @@
       <div class="fade-up">
         <p class="profile-name">Reo Takeshita</p>
         <p class="profile-title">TOEIC &amp; 英語コーチ / オーストラリア在住</p>
-        <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin:.6rem 0 1.1rem;">
-          <span style="display:inline-flex; align-items:center; gap:.35rem; background:var(--sky-lt); border:1.5px solid var(--sky); border-radius:40px; padding:.35rem 1rem; color:var(--navy); font-weight:700; font-size:.85rem;">TOEIC 985点</span>
-          <span style="display:inline-flex; align-items:center; gap:.35rem; background:var(--sky-lt); border:1.5px solid var(--sky); border-radius:40px; padding:.35rem 1rem; color:var(--navy); font-weight:700; font-size:.85rem;">英検準1級</span>
-        </div>
         <ul class="profile-list">
           <li>2018 カナダ 交換留学 / アメリカ ボストンキャリアフォーラム</li>
           <li>2019 国際教養大学 卒業</li>
