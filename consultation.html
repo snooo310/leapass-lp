@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ÂÄãÂà•Áõ∏Ë´á‰ºö „Åî‰∫àÁ¥Ñ | LeaPASS</title>
+<title>個別相談会 ご予約 | LeaPASS</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,7 +31,7 @@
   img  { display: block; max-width: 100%; }
   a    { text-decoration: none; color: inherit; }
 
-  /* ‚îÄ‚îÄ‚îÄ HEADER ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+  /* ─── HEADER ─────────────────────────────── */
   header {
     position: sticky; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -54,7 +54,7 @@
   }
   .btn-cta:hover { background: var(--navy); transform: translateY(-1px); }
 
-  /* ‚îÄ‚îÄ‚îÄ HERO ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+  /* ─── HERO ───────────────────────────────── */
   #hero { background: var(--bg); }
   .hero-banner img { width: 100%; height: auto; display: block; }
   .hero-cta-bar {
@@ -81,7 +81,7 @@
   }
   .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(242,167,190,.6); }
 
-  /* ‚îÄ‚îÄ‚îÄ SECTION COMMONS ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+  /* ─── SECTION COMMONS ─────────────────────── */
   section:not(#hero) { padding: 80px 5vw; }
   .section-label {
     font-size: .7rem; font-weight: 600; letter-spacing: .18em;
@@ -93,7 +93,7 @@
   }
   .section-lead { font-size: .95rem; color: var(--muted); line-height: 1.9; max-width: 560px; }
 
-  /* ‚îÄ‚îÄ‚îÄ PAIN SECTION ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+  /* ─── PAIN SECTION ────────────────────────── */
   #pain { background: var(--bg); }
   .pain-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
   .pain-inner .section-h2 { margin-bottom: 2.5rem; }
@@ -109,7 +109,7 @@
   .pain-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; }
   .pain-card p  { font-size: .85rem; color: var(--muted); line-height: 1.75; }
 
-  /* ‚îÄ‚îÄ‚îÄ MESSAGE BUBBLE ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+  /* ─── MESSAGE BUBBLE ──────────────────────── */
   .benefit-message {
     margin-top: 3rem; text-align: center; max-width: 1000px; margin-left: auto; margin-right: auto;
     background: var(--white); border: 1.5px solid var(--pink-lt);
@@ -117,7 +117,7 @@
   }
   .benefit-message p { color: var(--navy); font-size: 1.05rem; font-weight: 700; line-height: 1.9; }
 
-  /* ‚îÄ‚îÄ‚îÄ PREP CHECKLIST ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+  /* ─── PREP CHECKLIST ──────────────────────── */
   #prep { background: var(--white); }
   .prep-wrap {
     max-width: 1060px; margin: 0 auto;
@@ -136,9 +136,9 @@
     padding-bottom: .85rem; border-bottom: 1px solid var(--border);
   }
   .prep-list li:last-child { border-bottom: none; padding-bottom: 0; }
-  .prep-list li::before { content: '‚úì'; color: var(--pink); font-weight: 700; flex-shrink: 0; margin-top: .15rem; }
+  .prep-list li::before { content: '✓'; color: var(--pink); font-weight: 700; flex-shrink: 0; margin-top: .15rem; }
 
-  /* ‚îÄ‚îÄ‚îÄ NOTICE ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+  /* ─── NOTICE ──────────────────────────────── */
   #notice { background: var(--pink-lt); }
   .notice-header { text-align: center; margin-bottom: 3rem; }
   .notice-header .section-label { color: var(--pink); }
@@ -160,7 +160,7 @@
   .notice-card h3 { font-size: .95rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; }
   .notice-card p { font-size: .825rem; color: var(--muted); line-height: 1.8; }
 
-  /* ‚îÄ‚îÄ‚îÄ RESULTS ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+  /* ─── RESULTS ─────────────────────────────── */
   #results { background: var(--navy); }
   .results-inner { max-width: 1100px; margin: 0 auto; }
   .results-header { text-align: center; margin-bottom: 3rem; }
@@ -197,7 +197,7 @@
     border-left: 3px solid var(--pink); padding-left: .85rem;
   }
 
-  /* ‚îÄ‚îÄ‚îÄ BOOKING ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+  /* ─── BOOKING ─────────────────────────────── */
   #booking { background: var(--bg); }
   .booking-header { text-align: center; margin-bottom: 3rem; }
   .booking-header .section-label { color: var(--pink); }
@@ -235,7 +235,7 @@
   .cal-day.sun { color: var(--pink); }
   .cal-day.available { cursor: pointer; font-weight: 700; transition: background .2s, color .2s; }
   .cal-day.available::after {
-    content: '‚óã'; position: absolute; inset: 0;
+    content: '○'; position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: center;
     color: var(--sky); font-size: 1.3rem; font-weight: 400;
   }
@@ -296,7 +296,7 @@
   }
   .btn-pink-full:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(242,167,190,.55); }
 
-  /* ‚îÄ‚îÄ‚îÄ FOOTER ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+  /* ─── FOOTER ──────────────────────────────── */
   footer {
     background: var(--navy); color: rgba(255,255,255,.5);
     text-align: center; padding: 2.5rem 5vw; font-size: .8rem;
@@ -308,7 +308,7 @@
   .footer-links a:hover { color: var(--sky); }
   .footer-copy { color: rgba(255,255,255,.35); font-size: .75rem; }
 
-  /* ‚îÄ‚îÄ‚îÄ RESPONSIVE ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+  /* ─── RESPONSIVE ──────────────────────────── */
   @media (max-width: 900px) {
     header nav { display: none; }
     .btn-cta { font-size: .8rem; padding: .5rem 1.1rem; }
@@ -329,74 +329,74 @@
 </head>
 <body>
 
-<!-- ‚ïê‚ïê‚ïê HEADER ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+<!-- ═══ HEADER ═══════════════════════════════ -->
 <header>
   <a href="https://snooo310.github.io/leapass-lp/" class="logo">
     <img src="https://snooo310.github.io/leapass-lp/LeaPASS/LeaPASS.png" alt="LeaPASS">
   </a>
   <nav>
-    <a href="https://snooo310.github.io/leapass-lp/#reasons">ÁâπÂæ¥</a>
-    <a href="https://snooo310.github.io/leapass-lp/#results">ÂÆüÁ∏æ</a>
+    <a href="https://snooo310.github.io/leapass-lp/#reasons">特徴</a>
+    <a href="https://snooo310.github.io/leapass-lp/#results">実績</a>
     <a href="https://snooo310.github.io/leapass-lp/#faq">FAQ</a>
   </nav>
-  <a href="#booking" class="btn-cta">ÁÑ°ÊñôÁõ∏Ë´á„Çí‰∫àÁ¥Ñ„Åô„Çã ‚Ä∫</a>
+  <a href="#booking" class="btn-cta">無料相談を予約する ›</a>
 </header>
 
-<!-- ‚ïê‚ïê‚ïê HERO ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+<!-- ═══ HERO ══════════════════════════════════ -->
 <section id="hero">
   <div class="hero-banner">
-    <img src="LeaPASS/consultation-hero.png" alt="TOEICÂ∞ÇÈñÄ„Ç≥„Éº„ÉÅ„É≥„Ç∞ ÂÄãÂà•Áõ∏Ë´á‰ºö - TOEIC„ÅßÂ∫É„Åí„Çã‰∫∫Áîü„ÅÆÈÅ∏ÊäûËÇ¢">
+    <img src="LeaPASS/consultation-hero.png" alt="TOEIC専門コーチング 個別相談会 - TOEICで広げる人生の選択肢">
   </div>
   <div class="hero-cta-bar">
     <p class="hero-sub">
-      „Çπ„Ç≥„Ç¢„Ç¢„ÉÉ„Éó„ÅÆÂÖà„Å´„ÅÇ„Çã„ÄÅ„ÅÇ„Å™„Åü„ÅÆÁêÜÊÉ≥„ÅÆ„Ç≠„É£„É™„Ç¢„ÇÑ„É©„Ç§„Éï„Çπ„Çø„Ç§„É´„ÄÇ<br>
-      LeaPASS„ÅÆÂÄãÂà•Áõ∏Ë´á‰ºö„Åß„ÄÅ‰ªä„ÅÆ„ÅÇ„Å™„Åü„Å´ÂøÖË¶Å„Å™Â≠¶Áøí„É≠„Éº„Éâ„Éû„ÉÉ„Éó„Çí‰∏ÄÁ∑í„Å´Êèè„Åç„Åæ„Åõ„Çì„Åã„ÄÇ
+      スコアアップの先にある、あなたの理想のキャリアやライフスタイル。<br>
+      LeaPASSの個別相談会で、今のあなたに必要な学習ロードマップを一緒に描きませんか。
     </p>
     <div class="hero-meta">
-      <span>‚è± ÊâÄË¶ÅÊôÇÈñì Á¥Ñ60ÂàÜ</span>
-      <span>üíª „Ç™„É≥„É©„Ç§„É≥ÔºàGoogle MeetÔºâ</span>
-      <span>üéÅ ÂÆåÂÖ®ÁÑ°Êñô</span>
+      <span>⏱ 所要時間 約60分</span>
+      <span>💻 オンライン（Google Meet）</span>
+      <span>🎁 完全無料</span>
     </div>
-    <a href="#booking" class="btn-hero">60ÂàÜÁÑ°ÊñôÁõ∏Ë´á„Çí‰∫àÁ¥Ñ„Åô„Çã ‚Ä∫</a>
+    <a href="#booking" class="btn-hero">60分無料相談を予約する ›</a>
   </div>
 </section>
 
-<!-- ‚ïê‚ïê‚ïê PAIN POINTS ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+<!-- ═══ PAIN POINTS ════════════════════════════ -->
 <section id="pain">
   <div class="pain-inner">
     <p class="section-label">Your Challenges</p>
-    <h2 class="section-h2">„Åì„Çì„Å™„ÅäÊÇ©„Åø„ÅÇ„Çä„Åæ„Åõ„Çì„ÅãÔºü</h2>
+    <h2 class="section-h2">こんなお悩みありませんか？</h2>
     <div class="pain-grid">
       <div class="pain-card">
         <div class="pain-illust">
           <img src="https://loosedrawing.com/assets/media/illustrations/png/1524.png" alt="">
         </div>
-        <h3>‰Ωï„Åã„ÇâÊâã„Çí‰ªò„Åë„Çå„Å∞<br>„ÅÑ„ÅÑ„Åã„Çè„Åã„Çâ„Å™„ÅÑ</h3>
-        <p>TOEICÂØæÁ≠ñ„ÅÆÊïôÊùê„ÅØÂ±±„Åª„Å©„ÅÇ„Çã„Åë„Çå„Å©„ÄÅËá™ÂàÜ„Å´„Å®„Å£„Å¶‰Ωï„ÅåÊúÄÂÑ™ÂÖà„Å™„ÅÆ„ÅãÂàÜ„Åã„Çâ„Å™„ÅÑ„ÄÇ</p>
+        <h3>何から手を付ければ<br>いいかわからない</h3>
+        <p>TOEIC対策の教材は山ほどあるけれど、自分にとって何が最優先なのか分からない。</p>
       </div>
       <div class="pain-card">
         <div class="pain-illust">
           <img src="https://loosedrawing.com/assets/media/illustrations/png/1534.png" alt="">
         </div>
-        <h3>Ëá™ÂàÜ„Å´Âêà„Å£„Åü„Éó„É©„É≥„Åå<br>ÂàÜ„Åã„Çâ„Å™„ÅÑ</h3>
-        <p>‰ªï‰∫ã„ÇÑÁïôÂ≠¶Ê∫ñÂÇô„Å®‰∏°Á´ã„Åó„Å™„Åå„Çâ„ÄÅËá™ÂàÜ„ÅÆ„Éö„Éº„Çπ„ÅßÁ∂ö„Åë„Çâ„Çå„ÇãÂ≠¶Áøí„Éó„É©„É≥„ÅåÁü•„Çä„Åü„ÅÑ„ÄÇ</p>
+        <h3>自分に合ったプランが<br>分からない</h3>
+        <p>仕事や留学準備と両立しながら、自分のペースで続けられる学習プランが知りたい。</p>
       </div>
       <div class="pain-card">
         <div class="pain-illust">
           <img src="https://loosedrawing.com/assets/media/illustrations/png/1521.png" alt="">
         </div>
-        <h3>‰ªäÂæå„ÅÆÈÄ≤„ÇÅÊñπ„Å´„Å§„ÅÑ„Å¶<br>Áõ∏Ë´á„Åó„Åü„ÅÑ</h3>
-        <p>ÁõÆÊ®ô„Çπ„Ç≥„Ç¢„ÅØÊ±∫„Åæ„Å£„Å¶„ÅÑ„Çã„Åë„Çå„Å©„ÄÅ‰ªäÂæå„Å©„ÅÜÈÄ≤„ÇÅ„Å¶„ÅÑ„Åë„Å∞„ÅÑ„ÅÑ„ÅãÂÆ¢Ë¶≥ÁöÑ„Å™ÊÑèË¶ã„ÅåÊ¨≤„Åó„ÅÑ„ÄÇ</p>
+        <h3>今後の進め方について<br>相談したい</h3>
+        <p>目標スコアは決まっているけれど、今後どう進めていけばいいか客観的な意見が欲しい。</p>
       </div>
     </div>
 
     <div class="benefit-message">
-      <p>„Éû„É≥„ÉÑ„Éº„Éû„É≥„Åß„ÄÅÂÆåÂÖ®„Ç™„Éº„ÉÄ„Éº„É°„Ç§„Éâ„ÅÆ<br>„É≠„Éº„Éâ„Éû„ÉÉ„Éó„Çí„Åä„Å≤„Å®„Çä„Åä„Å≤„Å®„Çä„Å∏‰ΩúÊàê„Åó„Åæ„Åô</p>
+      <p>マンツーマンで、完全オーダーメイドの<br>ロードマップをおひとりおひとりへ作成します</p>
     </div>
   </div>
 </section>
 
-<!-- ‚ïê‚ïê‚ïê PREP ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+<!-- ═══ PREP ════════════════════════════════════ -->
 <section id="prep">
   <div class="prep-wrap">
     <div class="prep-illust">
@@ -404,253 +404,253 @@
     </div>
     <div>
       <p class="section-label" style="color:var(--pink)">Before the Session</p>
-      <h2 class="section-h2">Èù¢Ë´á„Çí„Çà„ÇäÊúâÊÑèÁæ©„Å´<br>„Åô„Çã„Åü„ÇÅ„Å´</h2>
+      <h2 class="section-h2">面談をより有意義に<br>するために</h2>
       <ul class="prep-list">
-        <li>Áõ¥Ëøë„ÅÆTOEICÂÖ¨Èñã„ÉÜ„Çπ„Éà„ÅÆ„Çπ„Ç≥„Ç¢Ôºà„ÅäÊåÅ„Å°„Åß„ÅÇ„Çå„Å∞Ôºâ„Çí„ÅîÊ∫ñÂÇô„Åè„Å†„Åï„ÅÑ</li>
-        <li>ÁõÆÊ®ô„Çπ„Ç≥„Ç¢„Å®ÈÅîÊàê„Åó„Åü„ÅÑÊôÇÊúü„ÇíÊï¥ÁêÜ„Åó„Å¶„Åä„ÅÑ„Å¶„Åè„Å†„Åï„ÅÑ</li>
-        <li>„Åì„Çå„Åæ„Åß„Å´‰ΩøÁî®„Åó„ÅüÊïôÊùê„ÇÑÂ≠¶ÁøíÊñπÊ≥ï„Çí„É°„É¢„Åó„Å¶„Åä„ÅÑ„Å¶„Åè„Å†„Åï„ÅÑ</li>
-        <li>1Êó•„Å´Â≠¶Áøí„Å´ÂÖÖ„Å¶„Çâ„Çå„ÇãÊôÇÈñì„ÅÆÁõÆÂÆâ„ÇíÁ¢∫Ë™ç„Åó„Å¶„Åä„ÅÑ„Å¶„Åè„Å†„Åï„ÅÑ</li>
-        <li>ÂÆâÂÆö„Åó„Åü„Éç„ÉÉ„ÉàÁí∞Â¢É„ÅßGoogle Meet„Å´Êé•Á∂ö„Åß„Åç„ÇãÂ†¥ÊâÄ„Çí„ÅîÁî®ÊÑè„Åè„Å†„Åï„ÅÑ</li>
+        <li>直近のTOEIC公開テストのスコア（お持ちであれば）をご準備ください</li>
+        <li>目標スコアと達成したい時期を整理しておいてください</li>
+        <li>これまでに使用した教材や学習方法をメモしておいてください</li>
+        <li>1日に学習に充てられる時間の目安を確認しておいてください</li>
+        <li>安定したネット環境でGoogle Meetに接続できる場所をご用意ください</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- ‚ïê‚ïê‚ïê NOTICE ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+<!-- ═══ NOTICE ══════════════════════════════════ -->
 <section id="notice">
   <div class="notice-header">
     <p class="section-label">Notes Before Booking</p>
-    <h2 class="section-h2">„Åî‰∫àÁ¥Ñ„Å´„ÅÇ„Åü„Å£„Å¶</h2>
+    <h2 class="section-h2">ご予約にあたって</h2>
   </div>
   <div class="notice-grid">
     <div class="notice-card">
       <div class="notice-num">01</div>
-      <h3>Áõ∏Ë´áÊôÇÈñì„ÅØÁ¥Ñ60ÂàÜ</h3>
-      <p>„Åò„Å£„Åè„Çä„Å®„ÅäË©±„Çí‰º∫„ÅÜ„Åü„ÇÅ„ÄÅÊâÄË¶ÅÊôÇÈñì„ÅØÁ¥Ñ60ÂàÜ„Çí‰∫àÂÆö„Åó„Å¶„Åä„Çä„Åæ„Åô„ÄÇ„ÅäÊôÇÈñì„Å´‰ΩôË£ï„ÇíÊåÅ„Å£„Å¶„ÅîÂèÇÂä†„Åè„Å†„Åï„ÅÑ„ÄÇ</p>
+      <h3>相談時間は約60分</h3>
+      <p>じっくりとお話を伺うため、所要時間は約60分を予定しております。お時間に余裕を持ってご参加ください。</p>
     </div>
     <div class="notice-card">
       <div class="notice-num">02</div>
-      <h3>„Ç™„É≥„É©„Ç§„É≥ÔºàGoogle MeetÔºâÈñãÂÇ¨</h3>
-      <p>Èù¢Ë´á„ÅØGoogle Meet„Çí‰ΩøÁî®„Åó„Åü„Ç™„É≥„É©„Ç§„É≥ÂΩ¢Âºè„Åß„Åô„ÄÇ„ÅäÁî≥„ÅóËæº„ÅøÂæå„ÄÅÂèÇÂä†Áî®URL„Çí„É°„Éº„É´„Å´„Å¶„ÅäÈÄÅ„Çä„ÅÑ„Åü„Åó„Åæ„Åô„ÄÇ</p>
+      <h3>オンライン（Google Meet）開催</h3>
+      <p>面談はGoogle Meetを使用したオンライン形式です。お申し込み後、参加用URLをメールにてお送りいたします。</p>
     </div>
     <div class="notice-card">
       <div class="notice-num">03</div>
-      <h3>„Ç≠„É£„É≥„Çª„É´„ÉªÂ§âÊõ¥„Å´„Å§„ÅÑ„Å¶</h3>
-      <p>Êó•Á®ã„ÅÆÂ§âÊõ¥„Éª„Ç≠„É£„É≥„Çª„É´„Çí„ÅîÂ∏åÊúõ„ÅÆÂ†¥Âêà„ÅØ„ÄÅ„ÅäÊó©„ÇÅ„Å´„É°„Éº„É´„Å´„Å¶„ÅîÈÄ£Áµ°„Åè„Å†„Åï„ÅÑ„ÄÇ</p>
+      <h3>キャンセル・変更について</h3>
+      <p>日程の変更・キャンセルをご希望の場合は、お早めにメールにてご連絡ください。</p>
     </div>
   </div>
 </section>
 
-<!-- ‚ïê‚ïê‚ïê RESULTSÔºàÈÅéÂéªÂÆüÁ∏æÔºâ ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+<!-- ═══ RESULTS（過去実績） ════════════════════════ -->
 <section id="results">
   <div class="results-inner">
     <div class="results-header">
       <p class="section-label">Results</p>
-      <h2 class="section-h2">ÂèóË¨õÁîü„ÅÆÂÆüÁ∏æ</h2>
-      <p style="color:rgba(255,255,255,.6);font-size:.875rem;margin-top:.5rem;">„É¢„Éã„Çø„ÉºÁîü„Ç¢„É≥„Ç±„Éº„Éà„ÉªÊó•Â†±„É¨„Éù„Éº„Éà„Çà„Çä</p>
+      <h2 class="section-h2">受講生の実績</h2>
+      <p style="color:rgba(255,255,255,.6);font-size:.875rem;margin-top:.5rem;">モニター生アンケート・日報レポートより</p>
     </div>
     <div class="results-grid">
 
       <div class="result-card">
         <div class="result-head">
-          <div class="result-avatar"><img src="LeaPASS/ig_rinna.jpg" alt="„Çä„Çì„Å™„Åï„Çì" loading="lazy"></div>
+          <div class="result-avatar"><img src="LeaPASS/ig_rinna.jpg" alt="りんなさん" loading="lazy"></div>
           <div class="result-info">
-            <p class="result-name"><a href="https://www.instagram.com/rinna_aus" target="_blank" rel="noopener">„Çä„Çì„Å™„Åï„Çì</a></p>
-            <p class="result-bg">Â§ßÂ≠¶2Âπ¥Áîü„Éª„É°„É´„Éú„É´„É≥Âú®‰Ωè</p>
+            <p class="result-name"><a href="https://www.instagram.com/rinna_aus" target="_blank" rel="noopener">りんなさん</a></p>
+            <p class="result-bg">大学2年生・メルボルン在住</p>
           </div>
         </div>
-        <p class="result-score">430ÁÇπ <span class="arrow">‚Üí</span> 600ÁÇπË∂Ö„Åà <strong>+150ÁÇπ‰ª•‰∏ä</strong></p>
-        <blockquote>„ÄåÊåáÁ§∫„Åå„ÇÅ„Å°„ÇÉ„Åè„Å°„ÇÉÁöÑÁ¢∫„ÅßÂÖ∑‰ΩìÁöÑ„ÄÇ„ÇÑ„Çã„Åì„Å®„ÅåÂÖ®ÈÉ®ÊòéÁ¢∫„Å´„Å™„Å£„Å¶„Åã„Çâ„ÄÅ„ÅÇ„Å®„ÅØ„ÇÑ„Çã„Å†„Åë„Åß„Åó„Åü„ÄÇ1„É∂Êúà„Åß600ÁÇπË∂Ö„Åà„ÇíÈÅîÊàêÔºÅ„Äç</blockquote>
+        <p class="result-score">430点 <span class="arrow">→</span> 600点超え <strong>+150点以上</strong></p>
+        <blockquote>「指示がめちゃくちゃ的確で具体的。やることが全部明確になってから、あとはやるだけでした。1ヶ月で600点超えを達成！」</blockquote>
       </div>
 
       <div class="result-card">
         <div class="result-head">
-          <div class="result-avatar"><img src="LeaPASS/ig_karin.jpg" alt="„Åã„Çä„Çì„Åï„Çì" loading="lazy"></div>
+          <div class="result-avatar"><img src="LeaPASS/ig_karin.jpg" alt="かりんさん" loading="lazy"></div>
           <div class="result-info">
-            <p class="result-name"><a href="https://www.instagram.com/goodmeatday.1129" target="_blank" rel="noopener">„Åã„Çä„Çì„Åï„Çì</a></p>
-            <p class="result-bg">25„Äú29Ê≠≥„Éª„ÉØ„Éº„Éõ„É™‰∏≠</p>
+            <p class="result-name"><a href="https://www.instagram.com/goodmeatday.1129" target="_blank" rel="noopener">かりんさん</a></p>
+            <p class="result-bg">25〜29歳・ワーホリ中</p>
           </div>
         </div>
-        <p class="result-score">450ÁÇπ <span class="arrow">‚Üí</span> 630ÁÇπ <strong>+180ÁÇπ</strong></p>
-        <blockquote>„Äå„Ç≥„Éº„ÉÅ„É≥„Ç∞„ÅÆ„Åä„Åã„Åí„ÅßÂãâÂº∑„ÅÆÊñπÂêëÊÄß„ÅåÊòéÁ¢∫„Å´„Å™„Å£„Åü„ÄÇ1„É∂Êúà„Åß„Åì„Çì„Å™„Å´Â§â„Çè„Çã„Å®ÊÄù„Å£„Å¶„ÅÑ„Å™„Åã„Å£„Åü„ÅÆ„ÅßÊú¨ÂΩì„Å´È©ö„Åç„Åæ„Åó„ÅüÔºÅ„Äç</blockquote>
+        <p class="result-score">450点 <span class="arrow">→</span> 630点 <strong>+180点</strong></p>
+        <blockquote>「コーチングのおかげで勉強の方向性が明確になった。1ヶ月でこんなに変わると思っていなかったので本当に驚きました！」</blockquote>
       </div>
 
       <div class="result-card">
         <div class="result-head">
-          <div class="result-avatar"><img src="LeaPASS/ig_kimika.jpg" alt="Kimika„Åï„Çì" loading="lazy"></div>
+          <div class="result-avatar"><img src="LeaPASS/ig_kimika.jpg" alt="Kimikaさん" loading="lazy"></div>
           <div class="result-info">
-            <p class="result-name"><a href="https://www.instagram.com/kiki5500" target="_blank" rel="noopener">Kimika„Åï„Çì</a></p>
-            <p class="result-bg">25„Äú29Ê≠≥„Éª„ÉØ„Éº„Éõ„É™‰∏≠</p>
+            <p class="result-name"><a href="https://www.instagram.com/kiki5500" target="_blank" rel="noopener">Kimikaさん</a></p>
+            <p class="result-bg">25〜29歳・ワーホリ中</p>
           </div>
         </div>
-        <p class="result-score">460ÁÇπ <span class="arrow">‚Üí</span> 610ÁÇπ <strong>+150ÁÇπ</strong></p>
-        <blockquote>„Äå„ÉØ„Éº„Éõ„É™„Åó„Å™„Åå„Çâ„Åß„ÇÇÊØéÊó•Á∂ö„Åë„Çâ„Çå„Åü„ÄÇËã±Ë™ûÊó•Ë®ò„Å®Êó•Â†±„ÅÆ„Åä„Åã„Åí„Åß„ÄÅÊ∞ó„Å•„ÅÑ„Åü„Çâ„Çπ„Ç≥„Ç¢„ÅåÂ§ß„Åç„Åè‰∏ä„Åå„Å£„Å¶„ÅÑ„Åü„ÄÇ„Äç</blockquote>
+        <p class="result-score">460点 <span class="arrow">→</span> 610点 <strong>+150点</strong></p>
+        <blockquote>「ワーホリしながらでも毎日続けられた。英語日記と日報のおかげで、気づいたらスコアが大きく上がっていた。」</blockquote>
       </div>
 
       <div class="result-card">
         <div class="result-head">
-          <div class="result-avatar"><img src="LeaPASS/ig_ami.jpg" alt="Ami„Åï„Çì" loading="lazy"></div>
+          <div class="result-avatar"><img src="LeaPASS/ig_ami.jpg" alt="Amiさん" loading="lazy"></div>
           <div class="result-info">
-            <p class="result-name"><a href="https://www.instagram.com/ami_english0" target="_blank" rel="noopener">Ami„Åï„Çì</a></p>
-            <p class="result-bg">25„Äú29Ê≠≥„Éªhotel receptionist</p>
+            <p class="result-name"><a href="https://www.instagram.com/ami_english0" target="_blank" rel="noopener">Amiさん</a></p>
+            <p class="result-bg">25〜29歳・hotel receptionist</p>
           </div>
         </div>
-        <p class="result-score">ÁèæÂú® <strong>855ÁÇπ</strong> ÈÅîÊàê</p>
-        <blockquote>„Äå‰ªï‰∫ã„ÅßËã±Ë™û„Çí‰Ωø„ÅÜÁí∞Â¢É„Å†„Åã„Çâ„Åì„Åù„ÄÅ„Çπ„Ç≥„Ç¢„Å´„ÇÇÂÆüÂäõ„Åå„Å§„ÅÑ„Å¶„Åç„Åü„Å®ÂÆüÊÑü„Åß„Åç„Åü„ÄÇ„Ç≥„Éº„ÉÅ„É≥„Ç∞„ÅßÊ≠£„Åó„ÅÑÊñπÂêë„ÅåË¶ã„Åà„Åü„ÄÇ„Äç</blockquote>
+        <p class="result-score">現在 <strong>855点</strong> 達成</p>
+        <blockquote>「仕事で英語を使う環境だからこそ、スコアにも実力がついてきたと実感できた。コーチングで正しい方向が見えた。」</blockquote>
       </div>
 
       <div class="result-card">
         <div class="result-head">
-          <div class="result-avatar"><img src="LeaPASS/ig_yuna.jpg" alt="Yuna„Åï„Çì" loading="lazy"></div>
+          <div class="result-avatar"><img src="LeaPASS/ig_yuna.jpg" alt="Yunaさん" loading="lazy"></div>
           <div class="result-info">
-            <p class="result-name"><a href="https://www.instagram.com/yuna_ua_nayu_aus" target="_blank" rel="noopener">Yuna„Åï„Çì</a></p>
-            <p class="result-bg">25„Äú29Ê≠≥„Éª„Ç™„Éº„Éö„Ç¢</p>
+            <p class="result-name"><a href="https://www.instagram.com/yuna_ua_nayu_aus" target="_blank" rel="noopener">Yunaさん</a></p>
+            <p class="result-bg">25〜29歳・オーペア</p>
           </div>
         </div>
-        <p class="result-score">430ÁÇπ„Çπ„Çø„Éº„Éà„ÉªÂèóÈ®ì‰∏≠</p>
-        <blockquote>„ÄåÊØéÊó•15ÂàÜ„Åß„ÇÇÁ∂ö„Åë„Çâ„Çå„Çã‰ªïÁµÑ„Åø„Çí‰Ωú„Å£„Å¶„ÇÇ„Çâ„Å£„Åü„ÄÇÊ¥ãÊ•Ω„ÇíËÅ¥„Åç„Å™„Åå„Çâ„É™„Çπ„Éã„É≥„Ç∞„ÇíÈçõ„Åà„Å¶„ÅÑ„Åü„Çâ„ÄÅËÄ≥„ÅåÊÖ£„Çå„Å¶„Åç„ÅüÔºÅ„Äç</blockquote>
+        <p class="result-score">430点スタート・受験中</p>
+        <blockquote>「毎日15分でも続けられる仕組みを作ってもらった。洋楽を聴きながらリスニングを鍛えていたら、耳が慣れてきた！」</blockquote>
       </div>
 
       <div class="result-card">
         <div class="result-head">
-          <div class="result-avatar"><img src="LeaPASS/ig_matsuura.jpg" alt="ÊùæÊµ¶„Åï„Çì" loading="lazy"></div>
+          <div class="result-avatar"><img src="LeaPASS/ig_matsuura.jpg" alt="松浦さん" loading="lazy"></div>
           <div class="result-info">
-            <p class="result-name"><a href="https://www.instagram.com/masa_to2020" target="_blank" rel="noopener">ÊùæÊµ¶„Åï„Çì</a></p>
-            <p class="result-bg">25„Äú29Ê≠≥„Éª„Éë„Éº„Éà</p>
+            <p class="result-name"><a href="https://www.instagram.com/masa_to2020" target="_blank" rel="noopener">松浦さん</a></p>
+            <p class="result-bg">25〜29歳・パート</p>
           </div>
         </div>
-        <p class="result-score">‰∏âÊó•Âùä‰∏ª <span class="arrow">‚Üí</span> ÊØéÊó•Â≠¶Áøí„Åå<strong>ÁøíÊÖ£Âåñ</strong></p>
-        <blockquote>„ÄåÁ∂ö„Åã„Å™„ÅÑ„ÄÅËá™ÂàÜ„Åå‰º∏„Å≥„Å¶„ÅÑ„Çã„Åã‰∏çÂÆâ‚Ä¶„Å®„ÅÑ„ÅÜÁä∂ÊÖã„Åã„Çâ„ÄÅ„Ç≥„Éº„ÉÅ„É≥„Ç∞„ÅÆ„Åä„Åã„Åí„ÅßÊØéÊó•Êú∫„Å´Âêë„Åã„ÅÜÁøíÊÖ£„ÅåË∫´„Å´„Å§„Åç„Åæ„Åó„Åü„ÄÇ„Äç</blockquote>
+        <p class="result-score">三日坊主 <span class="arrow">→</span> 毎日学習が<strong>習慣化</strong></p>
+        <blockquote>「続かない、自分が伸びているか不安…という状態から、コーチングのおかげで毎日机に向かう習慣が身につきました。」</blockquote>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ‚ïê‚ïê‚ïê BOOKING ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+<!-- ═══ BOOKING ═════════════════════════════════ -->
 <section id="booking">
   <div class="booking-header">
     <p class="section-label">Book a Session</p>
-    <h2 class="section-h2">ÂÄãÂà•Áõ∏Ë´á‰ºö„ÅÆ„Åî‰∫àÁ¥Ñ</h2>
-    <p class="section-lead" style="margin: 0 auto;">„ÅîÂ∏åÊúõ„ÅÆÊó•Á®ã„ÉªÊôÇÈñì„ÇíÈÅ∏Êäû„Åó„ÄÅ„ÅäÂÆ¢ÊßòÊÉÖÂ†±„Çí„ÅîÂÖ•Âäõ„Åè„Å†„Åï„ÅÑ„ÄÇ</p>
+    <h2 class="section-h2">個別相談会のご予約</h2>
+    <p class="section-lead" style="margin: 0 auto;">ご希望の日程・時間を選択し、お客様情報をご入力ください。</p>
   </div>
 
   <div class="booking-grid">
-    <!-- Â∑¶Ôºö„Ç´„É¨„É≥„ÉÄ„Éº -->
+    <!-- 左：カレンダー -->
     <div class="booking-box">
-      <h3>‚ë† Êó•Á®ã„ÇíÈÅ∏Êäû„Åó„Å¶„Åè„Å†„Åï„ÅÑ</h3>
+      <h3>① 日程を選択してください</h3>
       <div class="cal-header">
-        <button id="prevMonth">‚Äπ</button>
+        <button id="prevMonth">‹</button>
         <div class="cal-month" id="calMonth"></div>
-        <button id="nextMonth">‚Ä∫</button>
+        <button id="nextMonth">›</button>
       </div>
       <div class="cal-grid" id="calGrid"></div>
       <div class="cal-legend">
-        <span><span class="legend-mark">‚óã</span>‰∫àÁ¥ÑÂèØËÉΩ</span>
-        <span><span style="color:var(--border)">Ôºç</span>‰∫àÁ¥Ñ‰∏çÂèØ</span>
+        <span><span class="legend-mark">○</span>予約可能</span>
+        <span><span style="color:var(--border)">－</span>予約不可</span>
       </div>
 
       <div class="time-section">
-        <h4>‚ë° ÊôÇÈñì„ÇíÈÅ∏Êäû„Åó„Å¶„Åè„Å†„Åï„ÅÑ</h4>
+        <h4>② 時間を選択してください</h4>
         <div id="timeGrid" class="time-grid">
-          <div class="time-empty">Êó•Á®ã„ÇíÈÅ∏Êäû„Åô„Çã„Å®ÊôÇÈñì„ÅåË°®Á§∫„Åï„Çå„Åæ„Åô</div>
+          <div class="time-empty">日程を選択すると時間が表示されます</div>
         </div>
       </div>
 
       <div class="summary-box">
         <div class="summary-row">
-          <div class="summary-label">ÈÅ∏Êäû„Åó„ÅüÊó•Á®ã</div>
-          <div class="summary-value" id="summaryDate">Êú™ÈÅ∏Êäû</div>
+          <div class="summary-label">選択した日程</div>
+          <div class="summary-value" id="summaryDate">未選択</div>
         </div>
         <div class="summary-row">
-          <div class="summary-label">ÊôÇÈñì</div>
-          <div class="summary-value" id="summaryTime">Êú™ÈÅ∏Êäû</div>
+          <div class="summary-label">時間</div>
+          <div class="summary-value" id="summaryTime">未選択</div>
         </div>
         <div class="summary-row">
-          <div class="summary-label">ÊâÄË¶ÅÊôÇÈñì</div>
-          <div class="summary-value">Á¥Ñ60ÂàÜ</div>
+          <div class="summary-label">所要時間</div>
+          <div class="summary-value">約60分</div>
         </div>
       </div>
     </div>
 
-    <!-- Âè≥Ôºö„Éï„Ç©„Éº„É† -->
+    <!-- 右：フォーム -->
     <div class="booking-box">
-      <h3>‚ë¢ „ÅäÂÆ¢ÊßòÊÉÖÂ†±„Çí„ÅîÂÖ•Âäõ„Åè„Å†„Åï„ÅÑ</h3>
+      <h3>③ お客様情報をご入力ください</h3>
       <form id="bookingForm">
         <div class="form-row">
           <div class="form-group">
-            <label>Âßì <span class="req">ÂøÖÈ†à</span></label>
-            <input type="text" name="lastName" required placeholder="Â±±Áî∞">
+            <label>姓 <span class="req">必須</span></label>
+            <input type="text" name="lastName" required placeholder="山田">
           </div>
           <div class="form-group">
-            <label>Âêç <span class="req">ÂøÖÈ†à</span></label>
-            <input type="text" name="firstName" required placeholder="Â§™ÈÉé">
+            <label>名 <span class="req">必須</span></label>
+            <input type="text" name="firstName" required placeholder="太郎">
           </div>
         </div>
         <div class="form-group">
-          <label>„É°„Éº„É´„Ç¢„Éâ„É¨„Çπ <span class="req">ÂøÖÈ†à</span></label>
+          <label>メールアドレス <span class="req">必須</span></label>
           <input type="email" name="email" required placeholder="example@mail.com">
         </div>
         <div class="form-group">
-          <label>ÁèæÂú®„ÅÆTOEIC„Çπ„Ç≥„Ç¢ÔºàÁõÆÂÆâÔºâ</label>
+          <label>現在のTOEICスコア（目安）</label>
           <select name="currentScore">
-            <option value="">ÈÅ∏Êäû„Åó„Å¶„Åè„Å†„Åï„ÅÑ</option>
-            <option>ÂèóÈ®ìÁµåÈ®ì„Å™„Åó</option>
-            <option>„Äú400ÁÇπ</option>
-            <option>400„Äú500ÁÇπ</option>
-            <option>500„Äú600ÁÇπ</option>
-            <option>600„Äú700ÁÇπ</option>
-            <option>700„Äú800ÁÇπ</option>
-            <option>800ÁÇπ„Äú</option>
+            <option value="">選択してください</option>
+            <option>受験経験なし</option>
+            <option>〜400点</option>
+            <option>400〜500点</option>
+            <option>500〜600点</option>
+            <option>600〜700点</option>
+            <option>700〜800点</option>
+            <option>800点〜</option>
           </select>
         </div>
         <div class="form-group">
-          <label>ÁõÆÊ®ô„Çπ„Ç≥„Ç¢</label>
+          <label>目標スコア</label>
           <select name="targetScore">
-            <option value="">ÈÅ∏Êäû„Åó„Å¶„Åè„Å†„Åï„ÅÑ</option>
-            <option>500ÁÇπ</option>
-            <option>600ÁÇπ</option>
-            <option>700ÁÇπ</option>
-            <option>800ÁÇπ</option>
-            <option>900ÁÇπ</option>
-            <option>Êú™ÂÆö„ÉªÁõ∏Ë´á„Åó„Åü„ÅÑ</option>
+            <option value="">選択してください</option>
+            <option>500点</option>
+            <option>600点</option>
+            <option>700点</option>
+            <option>800点</option>
+            <option>900点</option>
+            <option>未定・相談したい</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Èù¢Ë´áÂãïÊ©ü„Çí‰∫à„ÇÅÊïô„Åà„Å¶„Åè„Å†„Åï„ÅÑ</label>
-          <textarea name="message" placeholder="Èôê„Çâ„Çå„ÅüÊôÇÈñì„ÅÆ‰∏≠„Åß„Åô„ÅÆ„Åß„ÄÅË®∫Êñ≠„Åó„Å¶Ê¨≤„Åó„ÅÑ„Åì„Å®„ÇíË®òÂÖ•„Åó„Å¶„Åä„Åè„Å®„Çà„ÇäÁöÑÁ¢∫„Å™„Ç¢„Éâ„Éê„Ç§„Çπ„Åå„Åß„Åç„Çã„Çà„ÅÜ„Å´„Å™„Çä„Åæ„Åô"></textarea>
-          <p class="form-note">‚Äª Èôê„Çâ„Çå„ÅüÊôÇÈñì„ÅÆ‰∏≠„Åß„Åô„ÅÆ„Åß„ÄÅË®∫Êñ≠„Åó„Å¶Ê¨≤„Åó„ÅÑ„Åì„Å®„ÇíË®òÂÖ•„Åó„Å¶„Åä„Åè„Å®„Çà„ÇäÁöÑÁ¢∫„Å™„Ç¢„Éâ„Éê„Ç§„Çπ„Åå„Åß„Åç„Çã„Çà„ÅÜ„Å´„Å™„Çä„Åæ„Åô</p>
+          <label>面談動機を予め教えてください</label>
+          <textarea name="message" placeholder="限られた時間の中ですので、診断して欲しいことを記入しておくとより的確なアドバイスができるようになります"></textarea>
+          <p class="form-note">※ 限られた時間の中ですので、診断して欲しいことを記入しておくとより的確なアドバイスができるようになります</p>
         </div>
         <div class="form-submit">
-          <button type="submit" class="btn-pink-full">Áî≥ËæºÂÜÖÂÆπ„ÇíÁ¢∫Ë™ç ‚Ä∫</button>
+          <button type="submit" class="btn-pink-full">申込内容を確認 ›</button>
         </div>
       </form>
     </div>
   </div>
 </section>
 
-<!-- ‚ïê‚ïê‚ïê FOOTER ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+<!-- ═══ FOOTER ═════════════════════════════════ -->
 <footer>
   <p class="footer-logo">LeaPASS</p>
-  <p class="footer-tagline">TOEIC„ÅßÈ£õÁ´ã„Å§„ÄÅÁêÜÊÉ≥„Å∏„ÅÆËªåË∑°</p>
+  <p class="footer-tagline">TOEICで飛立つ、理想への軌跡</p>
   <div class="footer-links">
     <a href="https://www.instagram.com/reo_toeiceng/" target="_blank">Instagram</a>
     <a href="https://www.threads.net/@reo_toeiceng" target="_blank">Threads</a>
     <a href="https://note.com/reo_toeiceng" target="_blank">note</a>
     <a href="https://www.youtube.com/@reo_toeiceng" target="_blank">YouTube</a>
   </div>
-  <p class="footer-copy">¬© LeaPASS. All Rights Reserved.</p>
+  <p class="footer-copy">© LeaPASS. All Rights Reserved.</p>
 </footer>
 
 <script>
-  const weekdayNames = ['Êó•','Êúà','ÁÅ´','Ê∞¥','Êú®','Èáë','Âúü'];
+  const weekdayNames = ['日','月','火','水','木','金','土'];
   let viewYear, viewMonth; // 0-indexed month
   let selectedDate = null;
   let selectedTime = null;
 
-  // ‰∫àÁ¥ÑÂèØËÉΩÊó•ÔºàYYYY-M-DÂΩ¢ÂºèÔºâ„Å®ÂêÑÊó•„ÅÆÊôÇÈñìÊû†
-  // Âèó‰ªòÊúüÈñìÔºö2026Âπ¥7Êúà1Êó•„Äú7Êúà15Êó•
-  // Êúà„ÄúÊ∞¥ÔºöÊó•Êú¨ÊôÇÈñì 8:00-22:00 / Êú®„ÄúÊó•ÔºöÊó•Êú¨ÊôÇÈñì 16:00-21:00ÔºàÂêÑ60ÂàÜÔºâ
+  // 予約可能日（YYYY-M-D形式）と各日の時間枠
+  // 受付期間：2026年7月1日〜7月15日
+  // 月〜水：日本時間 8:00-22:00 / 木〜日：日本時間 16:00-21:00（各60分）
   const availability = {};
   (function buildAvailability(){
     const monWedSlots = ['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00'];
@@ -667,7 +667,7 @@
   function renderCalendar(){
     const calMonth = document.getElementById('calMonth');
     const calGrid = document.getElementById('calGrid');
-    calMonth.textContent = `${viewYear}Âπ¥ ${viewMonth + 1}Êúà`;
+    calMonth.textContent = `${viewYear}年 ${viewMonth + 1}月`;
     calGrid.innerHTML = '';
 
     weekdayNames.forEach((w, i) => {
@@ -717,7 +717,7 @@
     const timeGrid = document.getElementById('timeGrid');
     timeGrid.innerHTML = '';
     if (!selectedDate){
-      timeGrid.innerHTML = '<div class="time-empty">Êó•Á®ã„ÇíÈÅ∏Êäû„Åô„Çã„Å®ÊôÇÈñì„ÅåË°®Á§∫„Åï„Çå„Åæ„Åô</div>';
+      timeGrid.innerHTML = '<div class="time-empty">日程を選択すると時間が表示されます</div>';
       return;
     }
     const key = `${selectedDate.year}-${selectedDate.month}-${selectedDate.day}`;
@@ -740,11 +740,11 @@
     const summaryTime = document.getElementById('summaryTime');
     if (selectedDate){
       const dow = weekdayNames[new Date(selectedDate.year, selectedDate.month, selectedDate.day).getDay()];
-      summaryDate.textContent = `${selectedDate.year}Âπ¥${selectedDate.month + 1}Êúà${selectedDate.day}Êó•Ôºà${dow}Ôºâ`;
+      summaryDate.textContent = `${selectedDate.year}年${selectedDate.month + 1}月${selectedDate.day}日（${dow}）`;
     } else {
-      summaryDate.textContent = 'Êú™ÈÅ∏Êäû';
+      summaryDate.textContent = '未選択';
     }
-    summaryTime.textContent = selectedTime || 'Êú™ÈÅ∏Êäû';
+    summaryTime.textContent = selectedTime || '未選択';
   }
 
   document.getElementById('prevMonth').addEventListener('click', () => {
@@ -758,12 +758,12 @@
     renderCalendar();
   });
 
-  // Google Apps Script „Ç¶„Çß„Éñ„Ç¢„Éó„É™„ÅÆURLÔºàbooking-apps-script.gs „Çí„Éá„Éó„É≠„Ç§„Åó„Å¶ÂèñÂæó„Åó„ÅüURL„Å´Êõ∏„ÅçÊèõ„Åà„Å¶„Åè„Å†„Åï„ÅÑÔºâ
+  // Google Apps Script ウェブアプリのURL（booking-apps-script.gs をデプロイして取得したURLに書き換えてください）
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwDjroq3G296tEMi_FFpd9VZB1oyWMPXrCsxbgKSJzqyR6RLR6cwyIHyviQFqEIBDeLDg/exec';
 
   (function init(){
     viewYear = 2026;
-    viewMonth = 6; // 7Êúà
+    viewMonth = 6; // 7月
     renderCalendar();
     renderTimeSlots();
     updateSummary();
@@ -772,25 +772,25 @@
   document.getElementById('bookingForm').addEventListener('submit', function(e){
     e.preventDefault();
     if (!selectedDate || !selectedTime){
-      alert('„ÅîÂ∏åÊúõ„ÅÆÊó•Á®ã„Å®ÊôÇÈñì„ÇíÈÅ∏Êäû„Åó„Å¶„Åè„Å†„Åï„ÅÑ„ÄÇ');
+      alert('ご希望の日程と時間を選択してください。');
       return;
     }
     const data = new FormData(this);
     const dow = weekdayNames[new Date(selectedDate.year, selectedDate.month, selectedDate.day).getDay()];
-    const dateStr = `${selectedDate.year}Âπ¥${selectedDate.month + 1}Êúà${selectedDate.day}Êó•Ôºà${dow}Ôºâ`;
+    const dateStr = `${selectedDate.year}年${selectedDate.month + 1}月${selectedDate.day}日（${dow}）`;
     const summary =
-      `‰ª•‰∏ã„ÅÆÂÜÖÂÆπ„ÅßÈÄÅ‰ø°„Åó„Åæ„Åô„ÄÇ„Çà„Çç„Åó„ÅÑ„Åß„Åô„ÅãÔºü\n\n` +
-      `Êó•Á®ãÔºö${dateStr} ${selectedTime}\n` +
-      `„ÅäÂêçÂâçÔºö${data.get('lastName')} ${data.get('firstName')} Êßò\n` +
-      `„É°„Éº„É´Ôºö${data.get('email')}\n` +
-      `ÁèæÂú®„ÅÆTOEIC„Çπ„Ç≥„Ç¢Ôºö${data.get('currentScore') || 'Êú™ÈÅ∏Êäû'}\n` +
-      `ÁõÆÊ®ô„Çπ„Ç≥„Ç¢Ôºö${data.get('targetScore') || 'Êú™ÈÅ∏Êäû'}\n` +
-      `Èù¢Ë´áÂãïÊ©üÔºö${data.get('message') || '„Å™„Åó'}`;
+      `以下の内容で送信します。よろしいですか？\n\n` +
+      `日程：${dateStr} ${selectedTime}\n` +
+      `お名前：${data.get('lastName')} ${data.get('firstName')} 様\n` +
+      `メール：${data.get('email')}\n` +
+      `現在のTOEICスコア：${data.get('currentScore') || '未選択'}\n` +
+      `目標スコア：${data.get('targetScore') || '未選択'}\n` +
+      `面談動機：${data.get('message') || 'なし'}`;
     if (!confirm(summary)) return;
 
     const submitBtn = this.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
-    submitBtn.textContent = 'ÈÄÅ‰ø°‰∏≠...';
+    submitBtn.textContent = '送信中...';
 
     const payload = {
       year: selectedDate.year,
@@ -811,7 +811,7 @@
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(payload)
     }).then(() => {
-      alert('„ÅäÁî≥„ÅóËæº„Åø„ÇíÂèó„Åë‰ªò„Åë„Åæ„Åó„Åü„ÄÇGoogle Meet„ÅÆURL„Å®Èù¢Ë´áÊó•ÊôÇ„ÇíË®òËºâ„Åó„ÅüÁ¢∫Ë™ç„É°„Éº„É´„Çí„ÅäÈÄÅ„Çä„Åó„Åæ„Åó„Åü„ÅÆ„Åß„ÅîÁ¢∫Ë™ç„Åè„Å†„Åï„ÅÑ„ÄÇ');
+      alert('お申し込みを受け付けました。Google MeetのURLと面談日時を記載した確認メールをお送りしましたのでご確認ください。');
       this.reset();
       selectedDate = null;
       selectedTime = null;
@@ -819,10 +819,10 @@
       renderTimeSlots();
       updateSummary();
     }).catch(() => {
-      alert('ÈÄÅ‰ø°‰∏≠„Å´„Ç®„É©„Éº„ÅåÁô∫Áîü„Åó„Åæ„Åó„Åü„ÄÇ„ÅäÊâãÊï∞„Åß„Åô„Åå„ÄÅÊôÇÈñì„Çí„Åä„ÅÑ„Å¶ÂÜçÂ∫¶„ÅäË©¶„Åó„Åè„Å†„Åï„ÅÑ„ÄÇ');
+      alert('送信中にエラーが発生しました。お手数ですが、時間をおいて再度お試しください。');
     }).finally(() => {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Áî≥ËæºÂÜÖÂÆπ„ÇíÁ¢∫Ë™ç ‚Ä∫';
+      submitBtn.textContent = '申込内容を確認 ›';
     });
   });
 </script>
