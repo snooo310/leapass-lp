@@ -259,6 +259,8 @@
   }
   .time-slot:hover { border-color: var(--sky); }
   .time-slot.selected { background: var(--pink); border-color: var(--pink); color: var(--white); font-weight: 700; }
+  .time-slot.booked { background: var(--border); border-color: var(--border); color: var(--muted); cursor: not-allowed; text-decoration: line-through; }
+  .time-slot.booked:hover { border-color: var(--border); }
   .time-empty { font-size: .85rem; color: var(--muted); text-align: center; padding: 1.25rem 0; }
 
   /* selected summary */
@@ -647,6 +649,7 @@
   let viewYear, viewMonth; // 0-indexed month
   let selectedDate = null;
   let selectedTime = null;
+  let bookedSlots = new Set();
 
   // 予約可能日（YYYY-M-D形式）と各日の時間枠
   // 受付期間：2026年7月1日〜7月15日
@@ -723,14 +726,18 @@
     const key = `${selectedDate.year}-${selectedDate.month}-${selectedDate.day}`;
     const slots = availability[key] || [];
     slots.forEach(time => {
+      const slotKey = `${key}_${time}`;
+      const isBooked = bookedSlots.has(slotKey);
       const el = document.createElement('div');
-      el.className = 'time-slot' + (selectedTime === time ? ' selected' : '');
-      el.textContent = time;
-      el.addEventListener('click', () => {
-        selectedTime = time;
-        renderTimeSlots();
-        updateSummary();
-      });
+      el.className = 'time-slot' + (selectedTime === time ? ' selected' : '') + (isBooked ? ' booked' : '');
+      el.textContent = isBooked ? `${time}（予約済み）` : time;
+      if (!isBooked){
+        el.addEventListener('click', () => {
+          selectedTime = time;
+          renderTimeSlots();
+          updateSummary();
+        });
+      }
       timeGrid.appendChild(el);
     });
   }
@@ -761,18 +768,37 @@
   // Google Apps Script ウェブアプリのURL（booking-apps-script.gs をデプロイして取得したURLに書き換えてください）
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwDjroq3G296tEMi_FFpd9VZB1oyWMPXrCsxbgKSJzqyR6RLR6cwyIHyviQFqEIBDeLDg/exec';
 
+  function loadBookedSlots(){
+    fetch(APPS_SCRIPT_URL)
+      .then(res => res.json())
+      .then(data => {
+        bookedSlots = new Set(data.booked || []);
+        renderTimeSlots();
+      })
+      .catch(() => {});
+  }
+
   (function init(){
     viewYear = 2026;
     viewMonth = 6; // 7月
     renderCalendar();
     renderTimeSlots();
     updateSummary();
+    loadBookedSlots();
   })();
 
   document.getElementById('bookingForm').addEventListener('submit', function(e){
     e.preventDefault();
     if (!selectedDate || !selectedTime){
       alert('ご希望の日程と時間を選択してください。');
+      return;
+    }
+    const slotKey = `${selectedDate.year}-${selectedDate.month}-${selectedDate.day}_${selectedTime}`;
+    if (bookedSlots.has(slotKey)){
+      alert('申し訳ございません。この日時は既に他の方が予約済みです。別の日時をお選びください。');
+      selectedTime = null;
+      renderTimeSlots();
+      updateSummary();
       return;
     }
     const data = new FormData(this);
@@ -812,12 +838,14 @@
       body: JSON.stringify(payload)
     }).then(() => {
       alert('お申し込みを受け付けました。Google MeetのURLと面談日時を記載した確認メールをお送りしましたのでご確認ください。');
+      bookedSlots.add(slotKey);
       this.reset();
       selectedDate = null;
       selectedTime = null;
       renderCalendar();
       renderTimeSlots();
       updateSummary();
+      loadBookedSlots();
     }).catch(() => {
       alert('送信中にエラーが発生しました。お手数ですが、時間をおいて再度お試しください。');
     }).finally(() => {
