@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>無料個別相談会のご予約 — LeaPASS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #3A5270;
+      --sky:    #7FC8DE;
+      --sky-lt: #EDF8FC;
+      --pink:   #F2A7BE;
+      --pink-lt:#FEF0F5;
+      --white:  #FFFFFF;
+      --bg:     #FAFCFF;
+      --text:   #2D3748;
+      --muted:  #718096;
+      --border: #E4EEF5;
+      --radius: 16px;
+      --shadow: 0 4px 24px rgba(58,82,112,.08);
+      --shadow-md: 0 8px 40px rgba(58,82,112,.13);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', 'Inter', sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; overflow-x: hidden; }
+    img  { display: block; max-width: 100%; }
+    a    { text-decoration: none; color: inherit; }
+
+    header {
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.2rem 5vw;
+      background: var(--white); box-shadow: var(--shadow);
+    }
+    header img { height: 36px; }
+
+    main { max-width: 720px; margin: 0 auto; padding: 4rem 5vw; }
+
+    .label { font-size: .7rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--sky); margin-bottom: .6rem; text-align: center; }
+    h1 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; color: var(--navy); text-align: center; margin-bottom: 1rem; line-height: 1.4; }
+    .lead { font-size: .95rem; color: var(--muted); line-height: 1.9; text-align: center; margin-bottom: 2.5rem; }
+
+    .points { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-bottom: 2.5rem; }
+    .point { background: var(--white); border: 1.5px solid var(--pink-lt); border-radius: var(--radius); padding: 1.5rem 1rem; text-align: center; box-shadow: var(--shadow); }
+    .point .num { font-size: .65rem; font-weight: 700; color: var(--pink); letter-spacing: .1em; margin-bottom: .5rem; }
+    .point h3 { font-size: .95rem; font-weight: 700; color: var(--navy); margin-bottom: .4rem; }
+    .point p { font-size: .8rem; color: var(--muted); line-height: 1.7; }
+
+    .card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 2rem 1.5rem; text-align: center; }
+    .card h2 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: .75rem; }
+    .card p { font-size: .875rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.9; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .95rem 2.4rem; border-radius: 40px;
+      background: var(--pink); color: var(--white);
+      font-size: 1rem; font-weight: 700;
+      box-shadow: 0 4px 20px rgba(242,167,190,.5);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(242,167,190,.6); }
+
+    .back { display: block; text-align: center; margin-top: 2.5rem; font-size: .85rem; color: var(--sky); font-weight: 600; }
+
+    footer { text-align: center; padding: 2rem 5vw; color: var(--muted); font-size: .8rem; }
+
+    @media (max-width: 640px) {
+      .points { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html">
+    <img src="LeaPASS/LeaPASS.png" alt="LeaPASS">
+  </a>
+</header>
+
+<main>
+  <p class="label">Free Consultation</p>
+  <h1>無料個別相談会のご予約</h1>
+  <p class="lead">
+    あなたの今のスコアと目標から、最短ルートのプランをご提案します。<br>
+    まずは60分の無料相談で、現状の課題と伸ばし方をお聞かせください。
+  </p>
+
+  <div class="points">
+    <div class="point">
+      <p class="num">POINT 01</p>
+      <h3>完全オーダーメイド</h3>
+      <p>あなたの目標スコアと現状に合わせて、学習プランをその場でご提案します。</p>
+    </div>
+    <div class="point">
+      <p class="num">POINT 02</p>
+      <h3>オンラインで完結</h3>
+      <p>Zoomでの面談のため、どこからでもご参加いただけます。</p>
+    </div>
+    <div class="point">
+      <p class="num">POINT 03</p>
+      <h3>相談のみでもOK</h3>
+      <p>無理な勧誘は一切ありません。お気軽にご相談ください。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>ご予約はこちらから</h2>
+    <p>下のボタンより、ご希望の日時をお選びください。<br>担当者よりZoomリンクをご案内いたします。</p>
+    <a class="btn" href="https://timerex.net/s/snooo310_ddee/cd626f6b" target="_blank" rel="noopener">日程を選んで予約する ›</a>
+  </div>
+
+  <a class="back" href="index.html">‹ トップページへ戻る</a>
+</main>
+
+<footer>
+  © LeaPASS. All Rights Reserved.
+</footer>
+
+</body>
+</html>
