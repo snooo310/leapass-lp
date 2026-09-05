@@ -67,8 +67,13 @@
   .sky-scene{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
   .flight-line{position:absolute;inset:0;width:100%;height:100%;}
   .flight-line path{fill:none;stroke:var(--gold);stroke-opacity:0.4;stroke-width:2.5;stroke-dasharray:2 12;stroke-linecap:round;}
-  .flight-line .glyph{font-size:22px;fill:var(--gold);}
-  @media (prefers-reduced-motion: reduce){ .plane-anim{display:none;} }
+  .plane-float{position:absolute;left:2%;top:88%;font-size:22px;color:var(--gold);animation:planeFloat 16s ease-in-out infinite;}
+  @keyframes planeFloat{
+    0%{left:2%;top:88%;transform:rotate(-15deg);}
+    50%{left:55%;top:34%;transform:rotate(-6deg);}
+    100%{left:96%;top:10%;transform:rotate(-18deg);}
+  }
+  @media (prefers-reduced-motion: reduce){ .plane-float{animation:none !important;} }
   .hero h1{color:var(--heading);font-size:clamp(1.9rem,3.8vw,2.7rem);line-height:1.42;margin:18px 0 22px;position:relative;}
   .hero h1 .hl{color:var(--gold);}
   .hero p.lead{color:var(--text-muted);max-width:54ch;font-size:1rem;position:relative;}
@@ -181,11 +186,8 @@
     <div class="sky-scene" aria-hidden="true">
       <svg class="flight-line" viewBox="0 0 900 420" preserveAspectRatio="xMidYMid slice">
         <path d="M10,390 C220,410 380,180 890,40"/>
-        <g class="plane-anim">
-          <text class="glyph" text-anchor="middle">✈</text>
-          <animateMotion dur="16s" repeatCount="indefinite" rotate="auto" path="M10,390 C220,410 380,180 890,40"/>
-        </g>
       </svg>
+      <span class="plane-float">✈</span>
     </div>
     <span class="eyebrow on-dark">Free Session ─ 無料個人面談</span>
     <h1>その挫折グセ、<br>ひとりで抱えていませんか？<br><span class="hl">今こそ英語を話せるようになるための60分</span></h1>
