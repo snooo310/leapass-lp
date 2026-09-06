@@ -80,6 +80,13 @@
   .btn-outline-dark{background:transparent;color:var(--heading);border:1.5px solid var(--line);}
 
   /* Header */
+  .top-announce{
+    background:linear-gradient(90deg, var(--sage-deep2), var(--sage-deep));
+    color:#fff;text-align:center;font-size:0.8rem;padding:9px 16px;
+    display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+  }
+  .top-announce a{color:var(--gold);font-weight:700;text-decoration:none;}
+  .top-announce a:hover{text-decoration:underline;}
   header.site{
     position:sticky;top:0;z-index:80;
     background:color-mix(in srgb, var(--cloud) 90%, transparent);
@@ -242,6 +249,7 @@
     font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:1.2rem;
     position:relative;z-index:2;margin-bottom:20px;
   }
+  .step-icon{width:26px;height:26px;color:var(--sky-deep);display:block;margin:6px 0 8px;}
   .step h3{font-size:1.15rem;margin-bottom:10px;}
   .step .phase{font-size:0.72rem;color:var(--gold-ink);background:var(--gold);display:inline-block;padding:4px 12px;border-radius:999px;font-weight:700;margin-bottom:12px;}
   .step p{color:var(--text-muted);font-size:0.92rem;}
@@ -311,10 +319,13 @@
   .whom-card.yes{background:linear-gradient(155deg, var(--panel-a) 0%, var(--panel-b) 100%);color:var(--heading);}
   .whom-card h3{font-size:1.1rem;margin-bottom:18px;font-family:"Zen Kaku Gothic New";}
   .whom-card.yes h3{color:var(--gold);}
-  .whom-card ul{margin:0;padding-left:1.2em;font-size:0.93rem;}
+  .whom-card ul{margin:0;padding-left:0;list-style:none;font-size:0.93rem;}
   .whom-card.yes ul{color:var(--text-muted);}
   .whom-card:not(.yes) ul{color:var(--text-muted);}
-  .whom-card li{margin-bottom:12px;}
+  .whom-card li{margin-bottom:14px;display:flex;align-items:flex-start;gap:10px;}
+  .whom-icon{width:20px;height:20px;flex-shrink:0;margin-top:1px;}
+  .whom-card.yes .whom-icon{color:var(--gold-deep);}
+  .whom-card:not(.yes) .whom-icon{color:var(--text-muted);}
 
   /* Pricing */
   .price-card{
@@ -356,6 +367,12 @@
   .foot-links{display:flex;gap:20px;flex-wrap:wrap;font-size:0.85rem;}
   .foot-links a{text-decoration:none;color:var(--sage);}
   .foot-links a:hover{color:var(--gold);}
+  .foot-gift{
+    display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;
+    margin-top:32px;padding:22px;border-radius:16px;
+    background:var(--sky-pale);text-align:center;
+  }
+  .foot-gift span{font-size:0.92rem;color:var(--heading);font-weight:700;}
   .copyright{margin-top:28px;font-size:0.78rem;color:#7fa39c;}
 
   /* ============ Motion & interaction polish ============ */
@@ -406,6 +423,11 @@
 <noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
 <body>
+
+<div class="top-announce">
+  <span>🎁 今なら<strong>3つの無料特典</strong>をプレゼント中</span>
+  <a href="https://line.me/R/ti/p/%40897ekleq" target="_blank" rel="noopener">LINEで受け取る ›</a>
+</div>
 
 <header class="site">
   <div class="nav">
@@ -577,18 +599,21 @@
       <div class="step reveal">
         <div class="step-dot">01</div>
         <span class="phase">1〜2か月目</span>
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="M14.5 14.5L20 20"/></svg>
         <h3>入会時レベル診断</h3>
         <p>4技能をチェックし、ライフスタイルや目標に合わせて完全オーダーメイドの学習計画を設計。Versantを初回受験し、現在地を数値化します。</p>
       </div>
       <div class="step reveal">
         <div class="step-dot">02</div>
         <span class="phase">2〜4か月目 ベーシック期</span>
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="7" height="6" rx="1"/><rect x="13.5" y="4" width="7" height="6" rx="1"/><rect x="8.5" y="13" width="7" height="6" rx="1"/></svg>
         <h3>基礎の総点検</h3>
         <p>単語2000語 (LeaPASS2000) や文法80単元 (Grammar80) や発音基礎 (IPA基礎) を固め、話すための土台をつくる。中間Versantで伸びを確認。</p>
       </div>
       <div class="step reveal">
         <div class="step-dot">03</div>
         <span class="phase">4〜6か月目 アドバンスド期</span>
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0012 0"/><path d="M12 17v3"/><path d="M9 20h6"/></svg>
         <h3>実践 & 英会話</h3>
         <p>発音添削やネイティブとの英会話へ移行。卒業時にはCEFR 1レベルアップを目指します。</p>
       </div>
@@ -737,19 +762,19 @@
       <div class="whom-card yes">
         <h3>こんな方におすすめです</h3>
         <ul>
-          <li>仕事でネイティブの同僚や取引先と、自分の言葉で話せるようになりたい社会人</li>
-          <li>旅行や国際交流で、現地の人と会話を楽しみたい社会人や学生</li>
-          <li>中学英語からやり直したいが、何をどう始めればいいか分からない方</li>
-          <li>卒業後も自分で学び続けられる "自走力" まで身につけたい方</li>
+          <li><svg class="whom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 8"/></svg><span>仕事でネイティブの同僚や取引先と、自分の言葉で話せるようになりたい社会人</span></li>
+          <li><svg class="whom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 8"/></svg><span>旅行や国際交流で、現地の人と会話を楽しみたい社会人や学生</span></li>
+          <li><svg class="whom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 8"/></svg><span>中学英語からやり直したいが、何をどう始めればいいか分からない方</span></li>
+          <li><svg class="whom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 8"/></svg><span>卒業後も自分で学び続けられる "自走力" まで身につけたい方</span></li>
         </ul>
       </div>
       <div class="whom-card">
         <h3>あまり向いていないかもしれません</h3>
         <ul>
-          <li>すでに英語力に自信がある方</li>
-          <li>英語基礎をすでに習得している方</li>
-          <li>ひとりで黙々と頑張りたい方、マイペースを崩したくない方</li>
-          <li>継続が得意で、伴走を必要としない方</li>
+          <li><svg class="whom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span>すでに英語力に自信がある方</span></li>
+          <li><svg class="whom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span>英語基礎をすでに習得している方</span></li>
+          <li><svg class="whom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span>ひとりで黙々と頑張りたい方、マイペースを崩したくない方</span></li>
+          <li><svg class="whom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span>継続が得意で、伴走を必要としない方</span></li>
         </ul>
       </div>
     </div>
@@ -813,6 +838,10 @@
         <a href="https://line.me/R/ti/p/%40897ekleq" target="_blank" rel="noopener">LINE</a>
         <a href="https://timerex.net/s/snooo310_ddee/787359e4" target="_blank" rel="noopener">個別面談</a>
       </div>
+    </div>
+    <div class="foot-gift">
+      <span>🎁 3つの無料特典、まだの方はこちらから</span>
+      <a class="btn btn-gold" href="https://line.me/R/ti/p/%40897ekleq" target="_blank" rel="noopener">無料特典を受け取る ›</a>
     </div>
     <p class="copyright">© LeaPASS. All Rights Reserved.</p>
   </div>
