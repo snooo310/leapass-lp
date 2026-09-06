@@ -313,9 +313,6 @@
   .arc-item:last-child{border-bottom:none;}
   .arc-item .phase-name{font-family:"Zen Kaku Gothic New";font-weight:900;color:var(--sage);font-size:1rem;padding-top:2px;}
   .arc-item p{margin:0;font-size:0.93rem;color:var(--text-muted);}
-  .story-photo{margin:22px 0 0;}
-  .story-photo img{width:100%;border-radius:16px;display:block;box-shadow:var(--shadow);}
-  .story-photo figcaption{margin-top:10px;font-size:0.82rem;color:var(--text-muted);text-align:center;}
 
   /* For whom */
   .whom-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border-radius:24px;overflow:hidden;}
@@ -364,9 +361,13 @@
     radial-gradient(520px 320px at 88% 110%, rgba(191,224,245,0.2), transparent 60%);}
   .final-band h2{color:var(--heading);font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:18px;position:relative;}
   .final-band p{color:var(--text-muted);max-width:50ch;margin:0 auto 34px;position:relative;}
-  .final-note{font-size:0.82rem;color:var(--text-muted);margin:22px auto 0 !important;position:relative;}
-  .final-note a{color:var(--sage-deep2);font-weight:700;text-decoration:none;}
-  .final-note a:hover{text-decoration:underline;}
+  .consult-band{
+    text-align:center;background:var(--surface);border:2px solid var(--sage-deep2);border-radius:24px;
+    padding:44px 32px;
+  }
+  .consult-band h2{color:var(--heading);font-size:clamp(1.2rem,2.4vw,1.6rem);margin-bottom:12px;}
+  .consult-band p{color:var(--text-muted);max-width:46ch;margin:0 auto 22px;}
+  .btn-consult{background:var(--sage-deep2);color:#fff;box-shadow:var(--shadow);}
   .final-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;}
 
   footer{padding:56px 0 40px;background:var(--sky-pale);color:var(--text-muted);}
@@ -589,7 +590,7 @@
     <div class="quote-band">
       <div class="quote-block">
         <div class="quote-mark">"</div>
-        <p>英語を "挫折の記憶" から "自信の源" に変え、<br>卒業後もひとりで学び続けられる自走型学習者を増やす。</p>
+        <p>英語を "挫折の記憶" から "自信の源" に変え、<br>卒業後もひとりで学び続けられる<br>自走型学習者を増やす。</p>
         <div class="attribution">LEAPASS PHILOSOPHY</div>
       </div>
     </div>
@@ -756,10 +757,6 @@
         <div class="arc-item"><div class="phase-name">転機</div><p>基礎からやり直した英語が、少しずつ "通じる" に変わる。TOEIC985を取得し、海外でも仕事も生活も英語で回せるように。</p></div>
         <div class="arc-item"><div class="phase-name">使命</div><p>自分と同じ遠回りと孤独を、今後の学習者にはさせたくない。独学8年で築いたエッセンスを再現可能な形で届けるために、LeaPASSを作った。</p></div>
       </div>
-      <figure class="story-photo reveal">
-        <img src="images/reo_australia.jpg" alt="オーストラリアでの一枚">
-        <figcaption>今は、英語を武器にオーストラリアでもこんな時間を楽しめるように。</figcaption>
-      </figure>
     </div>
   </div>
 </section>
@@ -831,7 +828,16 @@
       <div class="final-actions">
         <a class="btn btn-gold" href="https://line.me/R/ti/p/%40897ekleq" target="_blank" rel="noopener">3つの無料特典を受け取る ›</a>
       </div>
-      <p class="final-note">LINEでの個別相談も歓迎です。個人無料面談(60分／マンツーマン)も実施中 → <a href="https://timerex.net/s/snooo310_ddee/787359e4" target="_blank" rel="noopener">日程を見る</a></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="consult-band reveal">
+      <h2>まずは話してみたい方へ</h2>
+      <p>LINEでの個別相談も歓迎です。個人無料面談(60分／マンツーマン)も実施中。</p>
+      <a class="btn btn-consult" href="https://liff.line.me/2009703026-wyZKkE99?calendar_id=10769&amp;ts=1788698408" target="_blank" rel="noopener">個別面談の日程を見る ›</a>
     </div>
   </div>
 </section>
@@ -849,7 +855,7 @@
         <a href="https://youtube.com/@reo_eigo?si=XTQMMbO7uMk3Nw2A" target="_blank" rel="noopener">YouTube</a>
         <a href="https://note.com/reo_toeiceng" target="_blank" rel="noopener">note</a>
         <a href="https://line.me/R/ti/p/%40897ekleq" target="_blank" rel="noopener">LINE</a>
-        <a href="https://timerex.net/s/snooo310_ddee/787359e4" target="_blank" rel="noopener">個別面談</a>
+        <a href="https://liff.line.me/2009703026-wyZKkE99?calendar_id=10769&amp;ts=1788698408" target="_blank" rel="noopener">個別面談</a>
       </div>
     </div>
     <div class="foot-gift">
