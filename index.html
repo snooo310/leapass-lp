@@ -130,7 +130,7 @@
   /* Plane is a plain HTML element positioned by percentage, not tied to the
      SVG viewBox, so it can't end up stretched/misplaced on odd aspect ratios
      (e.g. the stacked, much-taller hero layout on mobile). */
-  .plane-float{position:absolute;left:2%;top:88%;font-size:26px;color:var(--gold);animation:planeFloat 18s ease-in-out infinite;}
+  .plane-float{position:absolute;left:2%;top:88%;width:46px;height:auto;animation:planeFloat 18s ease-in-out infinite;}
   @keyframes planeFloat{
     0%{left:2%;top:88%;transform:rotate(-15deg);}
     50%{left:55%;top:34%;transform:rotate(-6deg);}
@@ -164,7 +164,7 @@
   }
   .ticket:hover{transform:rotate(0deg) translateY(-6px);box-shadow:0 50px 80px -30px rgba(35,58,55,0.4);}
   @keyframes planeDrift{0%,100%{transform:translateY(-2px) translateX(0);}50%{transform:translateY(-2px) translateX(5px);}}
-  .ticket-route .plane{display:inline-block;animation:planeDrift 2.6s ease-in-out infinite;}
+  .ticket-route .plane{display:inline-block;width:34px;height:auto;animation:planeDrift 2.6s ease-in-out infinite;}
   @media (prefers-reduced-motion: reduce){ .ticket-route .plane{animation:none;} }
   .ticket-top{padding:22px 24px 18px;display:flex;justify-content:space-between;align-items:flex-start;}
   .ticket-brand{font-weight:900;font-size:1.05rem;letter-spacing:0.02em;color:var(--sage-deep);}
@@ -174,7 +174,7 @@
   .ticket-route .pt{text-align:left;}
   .ticket-route .code{font-size:2rem;font-weight:900;line-height:1;color:var(--sage-deep2);}
   .ticket-route .city{font-size:0.72rem;color:#7b8a88;margin-top:6px;font-family:"Noto Sans JP";font-weight:700;}
-  .ticket-route .plane{color:var(--sky-deep);font-size:1.3rem;transform:translateY(-2px);}
+  .ticket-route .plane{transform:translateY(-2px);}
   .ticket-route .dashline{flex:1;height:1px;background:repeating-linear-gradient(90deg,#cfd8d6 0 6px,transparent 6px 12px);margin:0 14px;position:relative;top:-10px;}
   .ticket-perf{position:relative;height:0;}
   .ticket-perf::before{content:"";position:absolute;left:0;right:0;top:0;border-top:2px dashed #dfe6e4;}
@@ -453,7 +453,7 @@
     <svg class="flight-line" viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid slice">
       <path d="M20,520 C260,560 480,260 1180,70"/>
     </svg>
-    <span class="plane-float">✈</span>
+    <img class="plane-float" src="images/plane.png" alt="">
   </div>
   <div class="wrap hero-grid">
     <div>
@@ -481,7 +481,7 @@
             <div class="city">GIVE UP ENGLISH</div>
           </div>
           <div class="dashline"></div>
-          <div class="plane">✈</div>
+          <img class="plane" src="images/plane.png" alt="">
           <div class="dashline"></div>
           <div class="pt" style="text-align:right;">
             <div class="code">自信</div>
