@@ -67,7 +67,7 @@
   .sky-scene{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
   .flight-line{position:absolute;inset:0;width:100%;height:100%;}
   .flight-line path{fill:none;stroke:var(--gold);stroke-opacity:0.4;stroke-width:2.5;stroke-dasharray:2 12;stroke-linecap:round;}
-  .plane-float{position:absolute;left:2%;top:88%;font-size:22px;color:var(--gold);animation:planeFloat 16s ease-in-out infinite;}
+  .plane-float{position:absolute;left:2%;top:88%;width:38px;height:auto;animation:planeFloat 16s ease-in-out infinite;}
   @keyframes planeFloat{
     0%{left:2%;top:88%;transform:rotate(-15deg);}
     50%{left:55%;top:34%;transform:rotate(-6deg);}
@@ -99,6 +99,7 @@
   .concern-list{border-top:1px solid var(--line);}
   .c-row{display:grid;grid-template-columns:60px 1fr;gap:22px;padding:24px 0;border-bottom:1px solid var(--line);align-items:baseline;}
   .c-row .c-num{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:1.6rem;color:transparent;-webkit-text-stroke:1.3px var(--sky-deep);opacity:0.6;}
+  .wall-icon{width:28px;height:28px;color:var(--gold-deep);display:block;margin-bottom:8px;}
   .c-row strong{display:block;color:var(--heading);font-weight:700;margin-bottom:4px;}
   .c-row p{margin:0;color:var(--text-muted);font-size:0.92rem;}
 
@@ -187,7 +188,7 @@
       <svg class="flight-line" viewBox="0 0 900 420" preserveAspectRatio="xMidYMid slice">
         <path d="M10,390 C220,410 380,180 890,40"/>
       </svg>
-      <span class="plane-float">✈</span>
+      <img class="plane-float" src="images/plane.png" alt="">
     </div>
     <span class="eyebrow on-dark">Free Session ─ 無料個人面談</span>
     <h1>その挫折グセ、<br>ひとりで抱えていませんか？<br><span class="hl">今こそ英語を話せるようになるための60分</span></h1>
@@ -214,15 +215,15 @@
     <div class="concern-list">
       <div class="c-row reveal">
         <div class="c-num">01</div>
-        <div><strong>何から始めればいいか分からない</strong><p>教材やアプリを転々として、遠回りしている気がする。</p></div>
+        <div><svg class="wall-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2 5-5 2 2-5 5-2z"/></svg><strong>何から始めればいいか分からない</strong><p>教材やアプリを転々として、遠回りしている気がする。</p></div>
       </div>
       <div class="c-row reveal">
         <div class="c-num">02</div>
-        <div><strong>ひとりだと続かない</strong><p>何度も挫折してきて、また同じ結果になりそうで怖い。</p></div>
+        <div><svg class="wall-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1 3-3 4-3 8a3 3 0 006 0c0-1.5-1-2-1-3.5 1.5 1 2.5 3 2.5 5A4.5 4.5 0 0112 17a4.5 4.5 0 01-4.5-4.5C7.5 8 12 6 12 3z"/></svg><strong>ひとりだと続かない</strong><p>何度も挫折してきて、また同じ結果になりそうで怖い。</p></div>
       </div>
       <div class="c-row reveal">
         <div class="c-num">03</div>
-        <div><strong>話せるようにならない</strong><p>知識はあるのに、いざとなると言葉が出てこない。</p></div>
+        <div><svg class="wall-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v10H9l-4 4v-4H4V5z"/></svg><strong>話せるようにならない</strong><p>知識はあるのに、いざとなると言葉が出てこない。</p></div>
       </div>
     </div>
   </div>
@@ -236,16 +237,19 @@
   <div class="do-list">
     <div class="do-item reveal">
       <div class="num">1</div>
+      <svg class="wall-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 4V3.5A1.5 1.5 0 0110.5 2h3A1.5 1.5 0 0115 3.5V4"/><path d="M9 12.5l2 2 4-4.5"/></svg>
       <h3>現状ヒアリング & レベルチェック</h3>
       <p>今の英語レベル & ライフスタイル & 英語が話せる理想の未来を整理します。</p>
     </div>
     <div class="do-item reveal">
       <div class="num">2</div>
+      <svg class="wall-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4l-6 2v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>
       <h3>あなただけの学習ロードマップ</h3>
       <p>6か月後の理想から逆算し、何をどの順でやるべきかその場でお伝えします。</p>
     </div>
     <div class="do-item reveal">
       <div class="num">3</div>
+      <svg class="wall-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M4.4 4.4l2.1 2.1M17.5 17.5l2.1 2.1M2.5 12h3M18.5 12h3M4.4 19.6l2.1-2.1M17.5 6.5l2.1-2.1"/></svg>
       <h3>続けるための仕組みづくり</h3>
       <p>これまで挫折してきた理由をふまえ、続けられる環境の作り方も一緒に考えます。</p>
     </div>
@@ -285,7 +289,7 @@
     <span class="quota">無料 ／ マンツーマン60分</span>
     <h2>この60分が、<br>あなたの英語を変える最初の一歩に。</h2>
     <p class="lead">下のボタンからご予約ください。</p>
-    <a class="btn btn-gold" href="https://timerex.net/s/snooo310_ddee/787359e4" target="_blank" rel="noopener">無料個別面談の日程を選ぶ ›</a>
+    <a class="btn btn-gold" href="https://liff.line.me/2009703026-wyZKkE99?calendar_id=10769&amp;ts=1788789421" target="_blank" rel="noopener">個人無料面談の日程を選ぶ ›</a>
     <p class="reassure">※ 面談はLeaPASSへの入会を強制するものではありません。あなたの状況を整理し、最適な選択肢を一緒に考える場です。</p>
   </section>
 </div>
@@ -299,8 +303,8 @@
 
 <div class="sticky-cta" id="stickyCta">
   <div class="wrap sticky-cta-inner">
-    <div class="sticky-info"><strong>無料個別面談の日程を選ぶ</strong><span>60分 ／ マンツーマン ／ 無料</span></div>
-    <a class="btn btn-gold" href="https://timerex.net/s/snooo310_ddee/787359e4" target="_blank" rel="noopener">予約する ›</a>
+    <div class="sticky-info"><strong>個人無料面談の日程を選ぶ</strong><span>60分 ／ マンツーマン ／ 無料</span></div>
+    <a class="btn btn-gold" href="https://liff.line.me/2009703026-wyZKkE99?calendar_id=10769&amp;ts=1788789421" target="_blank" rel="noopener">予約する ›</a>
   </div>
 </div>
 
