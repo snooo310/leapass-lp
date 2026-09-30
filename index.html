@@ -385,6 +385,54 @@
   .copyright{margin-top:28px;font-size:0.78rem;color:#7fa39c;}
 
   /* ============ Motion & interaction polish ============ */
+
+  /* Featured interview — cinematic player */
+  .feature{position:relative;overflow:hidden;color:#fff;padding:110px 0 120px;
+    background:radial-gradient(1100px 520px at 50% -10%,rgba(90,168,212,.55),transparent 70%),
+               radial-gradient(700px 400px at 100% 100%,rgba(224,128,143,.28),transparent 70%),
+               linear-gradient(180deg,#16324f 0%,#0f2238 100%);}
+  .feature .head{text-align:center;max-width:760px;margin:0 auto 44px;}
+  .feature .eyebrow{color:#fff;background:rgba(255,255,255,.14);}
+  .feature h2{color:#fff;font-size:clamp(1.8rem,4.2vw,3rem);line-height:1.3;margin-top:18px;}
+  .feature h2 em{font-style:normal;background:linear-gradient(transparent 62%,rgba(224,128,143,.75) 62%);padding:0 .1em;}
+  .feature .head p{color:rgba(255,255,255,.78);margin:16px auto 0;max-width:52ch;}
+  .player-stage{position:relative;max-width:1040px;margin:0 auto;}
+  .player-stage::before{content:"";position:absolute;inset:-28px;border-radius:40px;
+    background:linear-gradient(120deg,rgba(191,224,245,.45),rgba(245,205,210,.4));filter:blur(46px);opacity:.55;}
+  .player{position:relative;aspect-ratio:16/9;border-radius:22px;overflow:hidden;background:#000;
+    box-shadow:0 40px 90px -30px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.16);}
+  .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .player-poster{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;cursor:pointer;background:#000;display:block;}
+  .player-poster img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1), filter .4s;}
+  .player-poster::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(10,25,40,0) 55%,rgba(10,25,40,.55) 100%),rgba(10,25,40,.08);transition:background .4s;}
+  .player-poster:hover img{transform:scale(1.035);}
+  .player-poster:hover::after{background:linear-gradient(180deg,rgba(10,25,40,0) 55%,rgba(10,25,40,.6) 100%),rgba(10,25,40,0);}
+  .play-btn{position:absolute;left:50%;top:50%;z-index:2;width:clamp(76px,11vw,120px);aspect-ratio:1;border-radius:50%;
+    transform:translate(-50%,-50%);display:grid;place-items:center;
+    background:rgba(255,255,255,.94);color:var(--gold-deep);box-shadow:0 14px 40px rgba(0,0,0,.4);
+    transition:transform .25s ease;}
+  .play-btn::before,.play-btn::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid rgba(255,255,255,.85);
+    animation:playRing 2.4s ease-out infinite;}
+  .play-btn::after{animation-delay:1.2s;}
+  .play-btn svg{width:40%;height:40%;margin-left:7%;}
+  .player-poster:hover .play-btn,.player-poster:focus-visible .play-btn{transform:translate(-50%,-50%) scale(1.09);}
+  .player-poster:focus-visible{outline:3px solid var(--sky);outline-offset:-3px;}
+  @keyframes playRing{0%{transform:scale(1);opacity:.85;}100%{transform:scale(1.7);opacity:0;}}
+  .player-tag{position:absolute;left:18px;bottom:16px;z-index:2;display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;
+    letter-spacing:.06em;color:#fff;background:rgba(10,25,40,.6);backdrop-filter:blur(6px);padding:7px 14px;border-radius:999px;}
+  .player-tag i{width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block;}
+  .feature-facts{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:40px auto 0;max-width:1040px;}
+  .fact{display:flex;align-items:baseline;gap:10px;padding:14px 24px;border-radius:16px;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(6px);}
+  .fact small{font-size:.72rem;color:rgba(255,255,255,.65);letter-spacing:.08em;}
+  .fact b{font-family:"Zen Kaku Gothic New",sans-serif;font-size:1.35rem;color:#fff;font-weight:800;}
+  .fact b .ar{color:var(--blush);margin:0 .15em;}
+  .feature-cta{text-align:center;margin-top:40px;}
+  .feature-cta .sub{display:block;margin-top:14px;font-size:.82rem;color:rgba(255,255,255,.6);}
+  @media (max-width:640px){.feature{padding:76px 0 84px;}.player{border-radius:14px;}.player-stage::before{inset:-14px;}
+    .player-tag{left:10px;bottom:10px;font-size:.7rem;}.fact{padding:11px 18px;}}
+  @media (prefers-reduced-motion: reduce){.play-btn::before,.play-btn::after{animation:none;}.player-poster img{transition:none;}}
   .reveal{opacity:0;transform:translateY(26px) scale(0.97);transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);}
   .reveal.visible{opacity:1;transform:translateY(0) scale(1);}
   .wall-row.reveal:nth-child(2){transition-delay:.08s;}
@@ -649,6 +697,29 @@
   </div>
 </section>
 
+<section class="feature" id="interview">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Real Voice / 実績者対談</span>
+      <h2>元看護師が<br><em>海外で英語を使って働く</em>まで</h2>
+      <p>LeaPASS生が語る、挫折から "使える英語" をつかむまでのリアルな軌跡。</p>
+    </div>
+    <div class="player-stage reveal">
+      <div class="player" id="interviewPlayer" data-yt-id="60wJXd6mb2o">
+        <button class="player-poster" type="button" aria-label="実績者対談を再生する">
+          <img src="images/interview_thumb.jpg" alt="元看護師がオーストラリアでバリスタとして働くまで LeaPASS生実績対談" width="1600" height="900" loading="lazy">
+          <span class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></span>
+          <span class="player-tag"><i></i>LeaPASS生 実績対談</span>
+        </button>
+      </div>
+    </div>
+    <div class="feature-cta reveal">
+      <a class="btn btn-gold" href="https://line.me/R/ti/p/%40897ekleq" target="_blank" rel="noopener">無料特典を受け取る ›</a>
+      <span class="sub">公式LINEから個人無料面談も予約できます</span>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="kicker-block reveal">
@@ -899,6 +970,21 @@
       var trigger = hero ? hero.offsetHeight * 0.8 : 400;
       if(window.scrollY > trigger){ bar.classList.add('show'); } else { bar.classList.remove('show'); }
     }, {passive:true});
+  })();
+
+  (function(){
+    var box=document.getElementById('interviewPlayer'); if(!box) return;
+    var btn=box.querySelector('.player-poster');
+    function play(){
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube.com/embed/'+box.dataset.ytId+'?autoplay=1&rel=0&playsinline=1&modestbranding=1';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+      f.allowFullscreen=true; f.title='LeaPASS生 実績者対談';
+      box.replaceChildren(f);
+    }
+    btn.addEventListener('click',play);
+    var l=document.createElement('link'); l.rel='preconnect'; l.href='https://www.youtube.com';
+    btn.addEventListener('pointerenter',function(){document.head.appendChild(l);},{once:true});
   })();
 </script>
 
